@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:18:17 by tamehri           #+#    #+#             */
-/*   Updated: 2024/05/06 19:45:28 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/05/08 15:49:42 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ class	Weapon
 		const std::string &getType( void );
 		void setType( std::string _newType );
 };
-
 
 #endif

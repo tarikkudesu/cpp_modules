@@ -5,22 +5,23 @@
 #endif
 
 class Rectangle {
-private:
-	int	lenght;
-	int	widght;
-public:
-	void	set_parameters(int l, int w) {
-		if (w <= 0)
-			w = 0;
-		if (l <= 0)
-			l = 0;
-		lenght = l;
-		widght = w;
-	}
-	int	get_lenght() {return lenght;}
-	int	get_widght() {return widght;}
-	int		area() {return lenght * widght;}
-	int		perimeter() {return 2 * (lenght + widght);}
+	private :
+		int	lenght;
+		int	widght;
+	public :
+		void	set_parameters(int l, int w) {
+			if (w <= 0)
+				w = 0;
+			if (l <= 0)
+				l = 0;
+			lenght = l;
+			widght = w;
+		}
+
+		int		get_lenght() {return lenght;}
+		int		get_widght() {return widght;}
+		int		area() {return lenght * widght;}
+		int		perimeter() {return 2 * (lenght + widght);}
 };
 
 void f() {system("leaks a.out");}
