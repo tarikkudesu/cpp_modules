@@ -4,14 +4,6 @@
 #include "HumanB.hpp"
 
 int	main( void ) {
-	// Weapon sword("enma");
-
-	// std::string katana = sword.getType();
-	// HumanA zoro("zoro", sword);
-	// zoro.attack();
-	// sword.setType("hell slayer");
-	// zoro.attack();
-
 	{
 		Weapon club = Weapon("crude spiked club");
 		HumanA bob("Bob", club);

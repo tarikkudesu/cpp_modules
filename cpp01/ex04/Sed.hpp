@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Sed.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/07 10:33:46 by tamehri           #+#    #+#             */
-/*   Updated: 2024/05/11 17:18:12 by tamehri          ###   ########.fr       */
+/*   Created: 2024/05/09 09:42:19 by tamehri           #+#    #+#             */
+/*   Updated: 2024/05/09 10:21:12 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SED_HPP
+# define SED_HPP
+
 #include <iostream>
+#include <fstream>
 
-int main( int ac, char **av ) {
-	std::string str;
-	char		c;
+class Sed
+{
+	private :
+		std::string		_str;
+		std::string		_filename;
 
-	if (ac == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	else {
-		for (int i = 1; i < ac; i++) {
-			str = *(av + i);
-			for (size_t j = 0; j < str.length(); j++) {
-				c = str[j];
-				if (c >= 'a' && c <= 'z')
-					c -= 32;
-				std::cout << c;
-			}
-		}
-	}
-	std::cout << std::endl;
-	return (0);
-}
+	public :
+		Sed( std::string filename );
+		~Sed();
+		void replace( std::string s1, std::string s2 );
+};
+
+#endif

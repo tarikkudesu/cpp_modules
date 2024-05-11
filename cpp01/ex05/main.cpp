@@ -5,30 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/07 10:33:46 by tamehri           #+#    #+#             */
-/*   Updated: 2024/05/11 17:18:12 by tamehri          ###   ########.fr       */
+/*   Created: 2024/05/10 17:47:44 by tamehri           #+#    #+#             */
+/*   Updated: 2024/05/11 16:33:58 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Harl.hpp"
 
-int main( int ac, char **av ) {
-	std::string str;
-	char		c;
+int	main( void ) {
+	Harl	harl;
+	std::string	input;
 
-	if (ac == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	else {
-		for (int i = 1; i < ac; i++) {
-			str = *(av + i);
-			for (size_t j = 0; j < str.length(); j++) {
-				c = str[j];
-				if (c >= 'a' && c <= 'z')
-					c -= 32;
-				std::cout << c;
-			}
-		}
+	while (true) {
+		std::cout << "_";
+		std::cin >> input;
+		if (input.empty() || !input.compare("EXIT"))
+			break ;
+		else
+			harl.complain(input);
+		input.clear();
 	}
-	std::cout << std::endl;
-	return (0);
 }

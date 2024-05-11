@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/07 10:33:46 by tamehri           #+#    #+#             */
-/*   Updated: 2024/05/11 17:18:12 by tamehri          ###   ########.fr       */
+/*   Created: 2024/05/11 16:32:44 by tamehri           #+#    #+#             */
+/*   Updated: 2024/05/11 17:10:38 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef HARL_HPP
+# define HARL_HPP
 
-int main( int ac, char **av ) {
-	std::string str;
-	char		c;
+# include <iostream>
 
-	if (ac == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	else {
-		for (int i = 1; i < ac; i++) {
-			str = *(av + i);
-			for (size_t j = 0; j < str.length(); j++) {
-				c = str[j];
-				if (c >= 'a' && c <= 'z')
-					c -= 32;
-				std::cout << c;
-			}
-		}
-	}
-	std::cout << std::endl;
-	return (0);
-}
+class	Harl
+{
+	private :		
+		void	debug( void );
+		void	info( void );
+		void	warning( void );
+		void	error( void );
+
+	public :
+		Harl();
+		~Harl();
+
+		void	complain( std::string level );
+};
+
+#endif
