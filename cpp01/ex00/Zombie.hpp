@@ -15,19 +15,20 @@
 
 # include <iostream>
 
-class Zombie
+class	Zombie
 {
 	private :
-		std::string	name;
+		std::string	__name;
 
 	public :
-		Zombie( std::string zombie_name );
-		~Zombie();
-	
+		Zombie( void );
+		Zombie( std::string name );
+		~Zombie( void );
+
 		void	announce( void );
 };
 
-void	randomChump( std::string name );
 Zombie	*newZombie( std::string name );
+void 	randomChump( std::string name );
 
 #endif

@@ -12,14 +12,18 @@
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string zombie_name) {
-	name = zombie_name;
+Zombie::Zombie( void ) {
+
 }
 
-Zombie::~Zombie(void) {
-	std::cout << "the zombie " << name << " has neutralized" << std::endl;
+Zombie::Zombie( std::string name ) {
+	this->__name = name;
 }
 
-void Zombie::announce(void) {
-	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+Zombie::~Zombie( void ) {
+	std::cout << this->name << " has been neutralized" << std::endl;
+}
+
+void	Zombie::announce( void ) {
+	std::cout << this->name << " : BraiiiiiiinnnzzzZ..." << std::endl;
 }
