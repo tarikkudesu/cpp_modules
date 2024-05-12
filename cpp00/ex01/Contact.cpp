@@ -12,129 +12,78 @@
 
 #include "PhoneBook.hpp"
 
-Contact::Contact() {
-	static int	i;
 
-	this->index = i + 1;
-	i++;
+int	Contact::__nbContacts = 0;
+
+Contact::Contact( void ) {
+	__index = __nbContacts + 1;
+	__nbContacts++;
 }
 
-Contact::~Contact() {
+Contact::~Contact( void ) {
+
 }
 
-void Contact::new_contact() {
-	std::string	first;
-	std::string	last;
-	std::string	number;
-	std::string	nick;
-	std::string	secret;
-
-	std::cout << "-------------- \033[1;32mCONTACT INFO\033[0m --------------" << std::endl << std::endl;
-	std::cout << "Enter first name\t: ";
-	std::getline(std::cin, first);
-	if (std::cin.eof() || std::cin.fail())
-		return ;
-
-	std::cout << "Enter last name\t\t: ";
-	std::getline(std::cin, last);
-	if (std::cin.eof() || std::cin.fail())
-		return ;
-
-	std::cout << "Enter nick name\t\t: ";
-	std::getline(std::cin, nick);
-	if (std::cin.eof() || std::cin.fail())
-		return ;
-
-	std::cout << "Enter phone number\t: ";
-	std::getline(std::cin, number);
-	if (std::cin.eof() || std::cin.fail())
-		return ;
-
-	std::cout << "Enter darkest secret\t: ";
-	std::getline(std::cin, secret);
-	if (std::cin.eof() || std::cin.fail())
-		return ;
-
-	this->lastname = last;
-	this->firstname = first;
-	this->nickname = nick;
-	this->phonenumber = number;
-	this->darkestsecret = secret;
+void	Contact::set_index( int i ) {
+	this->__index = i;
 }
 
-void	Contact::set_index(int i) {
-	this->index = i;
+void	Contact::new_contact( void ) {
+	std::cout << "first name\t: ";
+	std::getline(std::cin, this->__firstname);
+	if (std::cin.eof() || std::cin.fail())
+		return ;
+
+	std::cout << "last name\t: ";
+	std::getline(std::cin, this->__lastname);
+	if (std::cin.eof() || std::cin.fail())
+		return ;
+
+	std::cout << "nick name\t: ";
+	std::getline(std::cin, this->__nickname);
+	if (std::cin.eof() || std::cin.fail())
+		return ;
+
+	std::cout << "phone number\t: ";
+	std::getline(std::cin, this->__phonenumber);
+	if (std::cin.eof() || std::cin.fail())
+		return ;
+
+	std::cout << "darkest secret\t: ";
+	std::getline(std::cin, this->__darkestsecret);
+	if (std::cin.eof() || std::cin.fail())
+		return ;
 }
 
-void	Contact::print_contact() {
-	char	c1;
-	char	c2;
-	char	c3;
-
-	std::cout << "\t" << this->index << " \033[1;32m|\033[0m ";
-	if (this->firstname.length() >= 10) {
-		for (int i = 0; i < 9; i++) {
-			c1 = this->firstname[i];
-			std::cout << c1;
-		}
-		std::cout << "." << " \033[1;32m|\033[0m ";
-	} else {
-		for (unsigned long i = 0; i < 10 - this->firstname.length(); i++) {
+void	Contact::print_feild( std::string feild ) {
+	if (feild.length() <= 10) {
+		for (size_t i = 0; i < 10 - feild.length(); i++)
 			std::cout << " ";
-		}
-		for (unsigned long i = 0; i < this->firstname.length(); i++) {
-			c1 = this->firstname[i];
-			std::cout << c1;
-		}
-		std::cout << " \033[1;32m|\033[0m ";
-	}
-
-	if (this->lastname.length() >= 10) {
-		for (int i = 0; i < 9; i++) {
-			c2 = this->lastname[i];
-			std::cout << c2;
-		}
-		std::cout << "." << " \033[1;32m|\033[0m ";
+		std::cout << feild;
 	} else {
-		for (unsigned long i = 0; i < 10 - this->lastname.length(); i++) {
-			std::cout << " ";
-		}
-		for (unsigned long i = 0; i < this->lastname.length(); i++) {
-			c2 = this->lastname[i];
-			std::cout << c2;
-		}
-		std::cout << " \033[1;32m|\033[0m ";
+		for (size_t i = 0; i < 9; i++)
+			std::cout << feild.at(i);
+		std::cout << ".";
 	}
-
-	if (this->nickname.length() >= 10) {
-		for (int i = 0; i < 9; i++) {
-			c3 = this->nickname[i];
-			std::cout << c3;
-		}
-		std::cout << "." << " \033[1;32m|\033[0m ";
-	} else {
-		for (unsigned long i = 0; i < 10 - this->nickname.length(); i++) {
-			std::cout << " ";
-		}
-		for (unsigned long i = 0; i < this->nickname.length(); i++) {
-			c3 = this->nickname[i];
-			std::cout << c3;
-		}
-		std::cout << " \033[1;32m|\033[0m ";
-	}
-
-	std::cout << std::endl;
 }
 
-void	Contact::print_full_contact() {
-	std::cout << "-------------- \033[1;32mCONTACT ";
-	std::cout << this->index << "\033[0m --------------" << std::endl;
+void	Contact::display_contact( void ) {
+	std::cout << "\t[" << this->__index << "] | ";
+	this->print_feild(this->__firstname);
+	std::cout << " | ";
+	this->print_feild(this->__lastname);
+	std::cout << " | ";
+	this->print_feild(this->__nickname);
 	std::cout << std::endl;
 
-	std::cout << "First name\t: " << this->firstname << std::endl;
-	std::cout << "Last name\t: " << this->lastname << std::endl;
-	std::cout << "nick name\t: " << this->nickname << std::endl;
-	std::cout << "Phone number\t: " << this->phonenumber << std::endl;
-	std::cout << "Darkest secret\t: " << this->darkestsecret << std::endl;
-	std::cout << std::endl;
+}
+
+void	Contact::display_full_contact( void ) {
+	std::cout << "------------------------\033[1;32m CONTACT " << this->__index << " \033[0m------------------------" << std::endl;
+	std::cout << std::endl << "\tfirst name\t: \033[1;32m" << __firstname << std::endl \
+				<< "\t\033[0mlast name\t: \033[1;32m" << __lastname << std::endl \
+				<< "\t\033[0mnick name\t: \033[1;32m" << __nickname << std::endl \
+				<< "\t\033[0mphone number\t: \033[1;32m" << __phonenumber << std::endl \
+				<< "\t\033[0mdarckest secret\t: \033[1;32m" << __darkestsecret << std::endl \
+				<< "\033[0m" << std::endl;
 }

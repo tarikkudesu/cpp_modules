@@ -15,25 +15,26 @@
 
 # include "PhoneBook.hpp"
 
-class Contact
+class	Contact
 {
-	private	:
-		int			index;
-		std::string	firstname;
-		std::string	lastname;
-		std::string	nickname;
-		std::string	phonenumber;
-		std::string darkestsecret;
-
-	public :
+	private :
+		int			__index;
+		static int	__nbContacts;
+		std::string	__firstname;
+		std::string	__lastname;
+		std::string	__nickname;
+		std::string	__phonenumber;
+		std::string	__darkestsecret;
+		void	print_feild( std::string feild );
 	
-		Contact();
-		~Contact();
-		
-		void	set_index(int i);
-		void	new_contact();
-		void	print_contact();
-		void	print_full_contact();
+	public :
+		Contact( void );
+		~Contact( void );
+
+		void	set_index( int i );
+		void	new_contact( void );
+		void	display_contact( void );
+		void	display_full_contact( void );
 };
 
 #endif

@@ -13,21 +13,22 @@
 #ifndef PHONEBOOK
 # define PHONEBOOK
 
+#include <cstdlib>
 # include <iostream>
 # include "Contact.hpp"
+
 
 class	PhoneBook
 {
 	private :
 		Contact	contacts[8];
-
+	
 	public :
-		PhoneBook();
+		PhoneBook( void );
 		~PhoneBook();
-
-		void	init();
-		void	add();
-		void	search();
+	
+		void	add( void );
+		void	search( void );
 };
 
 #endif

@@ -12,55 +12,44 @@
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook() {
+PhoneBook::PhoneBook( void ) {
+
 }
 
-PhoneBook::~PhoneBook() {
-}
+PhoneBook::~PhoneBook( void ) {
 
-void	PhoneBook::add() {
+}
+	
+void	PhoneBook::add( void ) {
 	system("clear");
-	for (int i = 7; i > 0; i--) {
-		this->contacts[i] = this->contacts[i - 1];
-	}
-
-	this->contacts[0].new_contact();
-
-	for (int i = 0; i < 8; i++) {
-		this->contacts[i].set_index(i + 1);
-	}
-	system("clear");
-}
-
-void	PhoneBook::init() {
-	for (int i = 0; i < 2; i++) {
-		this->contacts[i].new_contact();
-	}
-}
-
-void	PhoneBook::search() {
-	int	id;
-
-	system("clear");
+	std::cout << "--------------------\033[1;32m NEW CONTACT \033[0m--------------------" << std::endl;
 	std::cout << std::endl;
-	std::cout << "---------------- \033[1;32mPHONEBOOK CONTACTS\033[0m ----------------";
-	std::cout << std::endl << std::endl;
-	std::cout << "choose a contact :" << std::endl;
-	for (int i = 0; i < 8; i++) {
-		this->contacts[i].print_contact();
+	for (int i = 7; i > 0; i--) {
+		contacts[i] = contacts[i - 1];
 	}
+	contacts[0].new_contact();
+	for (int i = 0; i < 8; i++)
+		contacts[i].set_index(i + 1);
+	system("clear");
+}
 
-	id = 0;
-	while (true) {
-		id = 0;
-		std::cin >> id;
-		std::cout << id << "\n";
+void	PhoneBook::search( void ) {
+	system("clear");
+	std::cout << "-----------------------\033[1;32m SEARCH \033[0m----------------------" << std::endl;
+	std::cout << "select contact" << std::endl << std::endl;
+	for (int i = 0; i < 8; i++)
+		this->contacts[i].display_contact();
+
+	int	index = 0;
+	do {
+		std::cout << "_";
+		std::cin >> index;
 		if (std::cin.eof() || std::cin.fail())
 			return ;
-		else if (id > 0 && id <= 8)
-			break;
-		std::cout << "\033[1;31mindex must be between 1 and 8\033[0m" << std::endl;
-	}
+		if (index >= 1 && index <= 8)
+			break ;
+		std::cout << "index out of range" << std::endl;
+	} while (true);
 	system("clear");
-	this->contacts[id - 1].print_full_contact();
+	this->contacts[index - 1].display_full_contact();
 }
