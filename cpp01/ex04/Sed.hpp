@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 09:42:19 by tamehri           #+#    #+#             */
-/*   Updated: 2024/05/09 10:21:12 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/05/15 10:16:16 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@
 class Sed
 {
 	private :
-		std::string		_str;
-		std::string		_filename;
+		std::string	__str;
+		std::string	__filename;
 
 	public :
 		Sed( std::string filename );
 		~Sed();
-		void replace( std::string s1, std::string s2 );
+		void	replace( std::string s1, std::string s2);
 };
 
 #endif

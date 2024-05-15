@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 16:22:02 by tamehri           #+#    #+#             */
-/*   Updated: 2024/05/07 14:37:39 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/05/14 10:42:17 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,20 @@
 
 # include <iostream>
 
-class Zombie
+class	Zombie
 {
 	private :
-		std::string	name;
+		std::string	__name;
 
 	public :
-		Zombie() : name("zombie") {}
-		Zombie( std::string zombie_name );
-		~Zombie();
-	
+		Zombie( void );
+		Zombie( std::string name );
+		~Zombie( void );
+
 		void	announce( void );
 };
 
-Zombie	*zombieHorde( int N, std::string name );
+Zombie	*newZombie( std::string name );
+void 	randomChump( std::string name );
 
 #endif

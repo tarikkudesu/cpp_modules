@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 15:26:08 by tamehri           #+#    #+#             */
-/*   Updated: 2024/05/06 16:52:14 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/05/12 19:22:11 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ int	main( void ) {
     delete Foo;
     Foo = nullptr;
 
-    randomChump()
+    randomChump( "Hannibal" );
 }

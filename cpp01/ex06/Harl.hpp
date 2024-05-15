@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 16:32:44 by tamehri           #+#    #+#             */
-/*   Updated: 2024/05/11 17:10:38 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/05/15 11:01:48 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class	Harl
 {
-	private :		
+	private :
 		void	debug( void );
 		void	info( void );
 		void	warning( void );
@@ -26,8 +26,9 @@ class	Harl
 	public :
 		Harl();
 		~Harl();
-
-		void	complain( std::string level );
+		
+		void complain( std::string level );
 };
+
 
 #endif

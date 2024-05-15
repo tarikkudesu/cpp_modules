@@ -1,6 +1,6 @@
 SRC		=	main.cpp Sed.cpp
 OBJ		=	$(SRC:.cpp=.o)
-NAME	=	weapon
+NAME	=	sed
 
 all: $(NAME)
 
