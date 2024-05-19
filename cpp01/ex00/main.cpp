@@ -19,7 +19,6 @@ int	main( void ) {
     Foo->announce();
 
     delete Foo;
-    Foo = nullptr;
 
     randomChump( "Hannibal" );
 }
