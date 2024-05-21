@@ -215,8 +215,148 @@ Complex	Complex::operator-=( Complex &a ) {
 Complex f(Complex C) {
 	return C;
 }
+/*-------------------------------------------- Inheritance ------------------------------------------------*/
+
+class	Counter
+{
+	protected :
+		unsigned int	__count;
+	public :
+		Counter();
+		Counter( int const start );
+		Counter( Counter const &src );
+		~Counter();
+
+		Counter			&operator=( const Counter &rhs );
+		unsigned int	getValue( void ) const ;
+		void			Display( void );
+		Counter			operator++( void );
+		Counter			operator--( void );
+		bool			operator>( Counter &rhs );
+		bool			operator<( Counter &rhs );
+		bool			operator==( Counter &rhs );
+		bool			operator!=( Counter &rhs );
+		bool			operator<=( Counter &rhs );
+		bool			operator>=( Counter &rhs );
+		bool			operator>( const unsigned int i );
+		bool			operator<( const unsigned int i );
+		bool			operator==( const unsigned int i );
+		bool			operator!=( const unsigned int i );
+		bool			operator<=( const unsigned int i );
+		bool			operator>=( const unsigned int i );
+};
+
+Counter::Counter() : __count(0) {
+
+}
+
+Counter::Counter( int const start ) : __count(start) {
+
+}
+
+Counter::Counter( const Counter &src ) : __count(src.__count) {
+
+}
+
+Counter::~Counter() {
+
+}
+
+Counter			&Counter::operator=( Counter const &rhs ) {
+	if (this != &rhs)
+		this->__count = rhs.__count;
+	return *this;
+}
+
+void	Counter::Display( void ) {
+	std::cout << this->__count;
+}
+
+unsigned int	Counter::getValue( void ) const  {
+	return this->__count;
+}
+
+bool	Counter::operator>( Counter &rhs ) {
+	return this->__count > rhs.getValue() ? true : false;
+}
+
+bool	Counter::operator<( Counter &rhs ) {
+	return this->__count < rhs.getValue() ? true : false;
+}
+
+bool	Counter::operator==( Counter &rhs ) {
+	return this->__count == rhs.getValue() ? true : false;
+}
+
+bool	Counter::operator!=( Counter &rhs ) {
+	return this->__count != rhs.getValue() ? true : false;
+}
+
+bool	Counter::operator<=( Counter &rhs ) {
+	return this->__count <= rhs.getValue() ? true : false;
+}
+
+bool	Counter::operator>=( Counter &rhs ) {
+	return this->__count >= rhs.getValue() ? true : false;
+}
+
+bool	Counter::operator>( const unsigned int i ) {
+	return this->__count > i ? true : false;
+}
+bool	Counter::operator<( const unsigned int i ) {
+	return this->__count < i ? true : false;
+}
+bool	Counter::operator==( const unsigned int i ) {
+	return this->__count == i ? true : false;
+}
+bool	Counter::operator!=( const unsigned int i ) {
+	return this->__count != i ? true : false;
+}
+bool	Counter::operator<=( const unsigned int i ) {
+	return this->__count <= i ? true : false;
+}
+bool	Counter::operator>=( const unsigned int i ) {
+	return this->__count >= i ? true : false;
+}
+
+Counter	Counter::operator++( void ) {
+	return Counter(++__count);
+}
+
+Counter	Counter::operator--( void ) {
+	return Counter(--__count);
+}
+
+class	CounterD : public Counter
+{
+	public :
+		Counter	operator++( int );
+		Counter	operator--( int );
+};
+
+Counter	CounterD::operator++( int ) {
+	return Counter(__count++);
+}
+
+Counter	CounterD::operator--( int ) {
+	return Counter(__count--);
+}
+
 /*------------------------------------------------ main ---------------------------------------------------*/
 
+class	Test
+{
+	private :
+		int value;
+	public :
+		Test() : value(7) { }
+		int		getValue( void ) {return value;}
+		void	setValue( int value ) {
+			std::cout << value << std::endl;
+		}
+};
+
 int main() {
-	std::cout << (1 << 5) << std::endl;
+	Test t;
+	t.setValue(6);
 }

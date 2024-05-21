@@ -16,7 +16,7 @@ Fixed::Fixed( const float value ) : __fixedPointValue(roundf(value * (1 << __fra
 
 Fixed::Fixed( Fixed const &src ) {
 	std::cout << "Copy constructor called" << std::endl;
-	// this->setRawBits(src.getRawBits());
+	this->setRawBits(src.getRawBits());
 	*this = src;
 }
 
@@ -97,12 +97,12 @@ Fixed	Fixed::operator--( int ) {
 
 
 int	Fixed::getRawBits( void ) const {
-	std::cout << "getRawBits member function called" << std::endl;
+	// std::cout << "getRawBits member function called" << std::endl;
 	return this->__fixedPointValue;
 }
 
 void	Fixed::setRawBits( int const raw ) {
-	std::cout << "setRawBits member function called" << std::endl;
+	// std::cout << "setRawBits member function called" << std::endl;
 	this->__fixedPointValue = raw;
 }
 

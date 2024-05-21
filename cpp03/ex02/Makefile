@@ -1,13 +1,13 @@
-SRC		=	main.cpp Fixed.cpp Point.cpp bsp.cpp
+SRC		=	main.cpp ClapTrap.cpp FragTrap.cpp
 OBJ		=	$(SRC:.cpp=.o)
-NAME	=	point
+NAME	=	fragtrap
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	@c++ -Wall -Wextra -Werror -std=c++98 $(OBJ) -o $(NAME)
 
-%.o: %.cpp Fixed.hpp
+%.o: %.cpp ClapTrap.hpp FragTrap.hpp
 	@c++ -Wall -Wextra -Werror -std=c++98 -c $< -o $@
 
 clean:

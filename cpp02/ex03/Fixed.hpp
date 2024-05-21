@@ -35,9 +35,9 @@ class	Fixed
 		float	toFloat( void ) const;
 		int		toInt( void ) const;
 
-		static Fixed	&min( Fixed &pt1, Fixed &pt2 );
+		static Fixed		&min( Fixed &pt1, Fixed &pt2 );
 		static const Fixed	&min( Fixed const &pt1, Fixed const &pt2 );
-		static Fixed	&max( Fixed &pt1, Fixed &pt2 );
+		static Fixed		&max( Fixed &pt1, Fixed &pt2 );
 		static const Fixed	&max( Fixed const &pt1, Fixed const &pt2 );
 };
 
