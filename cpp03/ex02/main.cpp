@@ -5,19 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/20 12:08:07 by tamehri           #+#    #+#             */
-/*   Updated: 2024/05/21 16:09:22 by tamehri          ###   ########.fr       */
+/*   Created: 2024/05/23 14:20:24 by tamehri           #+#    #+#             */
+/*   Updated: 2024/05/23 17:20:46 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
-int main( void ) {
-	FragTrap	Zoro("Zoro");
+int	main( void ) {
+	FragTrap	FT_1( "Repetitive work" );
 
-	Zoro.attack("kaido");
-	Zoro.takeDamage(3);
-	Zoro.beRepaired(2);
+	FT_1.attack("kaido");
+	FT_1.takeDamage( 4 );
+	FT_1.beRepaired( 23 );
+	FT_1.highFivesGuys();
 
-	Zoro.highFivesGuys();
+	return 0;
 }

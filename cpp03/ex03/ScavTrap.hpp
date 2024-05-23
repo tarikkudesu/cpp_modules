@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/20 12:52:44 by tamehri           #+#    #+#             */
-/*   Updated: 2024/05/21 16:52:27 by tamehri          ###   ########.fr       */
+/*   Created: 2024/05/23 14:59:46 by tamehri           #+#    #+#             */
+/*   Updated: 2024/05/23 17:44:19 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,15 @@
 
 # include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class	ScavTrap : virtual public ClapTrap
 {
 	public :
 		ScavTrap();
-		ScavTrap( std::string name );
-		// ScavTrap( ScavTrap const &src );
 		~ScavTrap();
-		// ScavTrap	&operator=( ScavTrap const &rhs );
-		void		guardGate();
-		void	function( void ) {
-			std::cout << "FragTrap function" << std::endl;
-		}
+		ScavTrap( std::string name );
+
+		void	attack( const std::string &target );
+		void	guardGate( void );
 };
 
 #endif

@@ -5,17 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/20 12:08:07 by tamehri           #+#    #+#             */
-/*   Updated: 2024/05/20 12:48:33 by tamehri          ###   ########.fr       */
+/*   Created: 2024/05/23 14:20:24 by tamehri           #+#    #+#             */
+/*   Updated: 2024/05/23 17:20:12 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-int main( void ) {
-	ClapTrap	zoro("zoro");
+int	main( void ) {
+	ClapTrap	CT_1( "Aaaaand... OPEN!");
 
-	zoro.attack("kaido");
-	zoro.takeDamage(3);
-	zoro.beRepaired(2);
+	CT_1.attack( "kaido" );
+	CT_1.takeDamage( 4 );
+	CT_1.beRepaired( 16 );
+
+	return 0;
 }

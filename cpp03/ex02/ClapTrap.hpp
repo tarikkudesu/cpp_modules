@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/20 12:06:59 by tamehri           #+#    #+#             */
-/*   Updated: 2024/05/21 16:08:25 by tamehri          ###   ########.fr       */
+/*   Created: 2024/05/23 14:19:35 by tamehri           #+#    #+#             */
+/*   Updated: 2024/05/23 18:24:05 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	CLAPTRAP_HPP
+#ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
 
-#include <iostream>
+# include <iostream>
 
 class	ClapTrap
 {
@@ -26,13 +26,13 @@ class	ClapTrap
 	public :
 		ClapTrap();
 		ClapTrap( std::string name );
-		ClapTrap( ClapTrap const &src );
+		ClapTrap( const ClapTrap &src );
 		~ClapTrap();
-		ClapTrap	&operator=( ClapTrap const &rhs );
-	
-		void	attack( const std::string &target );
-		void	takeDamage( unsigned int amount );
-		void	beRepaired( unsigned int amount );
+		ClapTrap	&operator=( const ClapTrap &rhs );
+		
+		void		attack( const std::string& target );
+		void		takeDamage( unsigned int amount );
+		void		beRepaired( unsigned int amount );
 };
 
 #endif
