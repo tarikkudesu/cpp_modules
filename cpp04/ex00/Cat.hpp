@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 18:11:09 by tamehri           #+#    #+#             */
-/*   Updated: 2024/05/30 14:52:59 by tamehri          ###   ########.fr       */
+/*   Created: 2024/05/30 20:39:27 by tamehri           #+#    #+#             */
+/*   Updated: 2024/05/30 21:31:26 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
-# include <iostream>
-# include "Contact.hpp"
+# include "Animal.hpp"
 
-
-class	PhoneBook
+class Cat : public Animal
 {
-	private :
-		Contact	contacts[8];
-	
 	public :
-		PhoneBook( void );
-		~PhoneBook();
-	
-		void	add( void );
-		void	search( void );
-		void	menu( void );
+		Cat();
+		~Cat();
+
+		void				makeSound( void ) const;
+		virtual std::string	getType( void ) const;
 };
 
 #endif

@@ -6,13 +6,12 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 18:25:05 by tamehri           #+#    #+#             */
-/*   Updated: 2024/05/08 09:36:53 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/05/30 15:13:41 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <iostream>
-#include <ctime>
 
 int	Account::_nbAccounts;
 int	Account::_totalAmount;

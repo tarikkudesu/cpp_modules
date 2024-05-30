@@ -6,10 +6,10 @@ HEADER	=	Contact.hpp PhoneBook.hpp
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@c++ -Wall -Wextra -Werror -std=c++98 $(OBJ) -o $(NAME)
+	c++ -Wall -Wextra -Werror -std=c++98 $(OBJ) -o $(NAME)
 
-%.o: %.cpp
-	@c++ -Wall -Wextra -Werror -std=c++98 -c $< -o $@
+%.o: %.cpp Contact.hpp PhoneBook.hpp
+	c++ -Wall -Wextra -Werror -std=c++98 -c $< -o $@
 
 clean:
 	@rm -f $(OBJ)

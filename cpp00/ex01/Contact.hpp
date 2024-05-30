@@ -6,12 +6,12 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 18:10:57 by tamehri           #+#    #+#             */
-/*   Updated: 2024/05/05 15:07:01 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/05/30 14:21:09 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT
-# define CONTACT
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
 # include "PhoneBook.hpp"
 

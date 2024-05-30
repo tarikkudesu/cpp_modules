@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 18:11:09 by tamehri           #+#    #+#             */
-/*   Updated: 2024/05/30 14:52:59 by tamehri          ###   ########.fr       */
+/*   Created: 2024/05/30 20:39:24 by tamehri           #+#    #+#             */
+/*   Updated: 2024/05/30 21:31:21 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#include "Cat.hpp"
 
-# include <iostream>
-# include "Contact.hpp"
+Cat::Cat() {
+	std::cout << "\033[1;36mCat Default constructor called\033[0m" << std::endl;
+	this->__type = "cat";
+}
 
+Cat::~Cat() {
+	std::cout << "\033[1;36mCat Desctructor called\033[0m" << std::endl;
+}
 
-class	PhoneBook
-{
-	private :
-		Contact	contacts[8];
-	
-	public :
-		PhoneBook( void );
-		~PhoneBook();
-	
-		void	add( void );
-		void	search( void );
-		void	menu( void );
-};
+void	Cat::makeSound( void ) const {
+	std::cout << "Meaooooo" << std::endl;
+}
 
-#endif
+std::string	Cat::getType( void ) const {
+	return	this->__type;
+}

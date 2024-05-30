@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 10:33:46 by tamehri           #+#    #+#             */
-/*   Updated: 2024/05/11 17:18:12 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/05/30 12:09:01 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,16 @@ int	main( int ac, char **av ) {
 
 	if (ac != 1) {
 		for (int i = 1; i < ac; i++) {
-			str = *(av + 1);
+			str = *(av + i);
 			for (size_t j = 0; j < str.length(); j++) {
 				c = str.at(j);
 				if (c >= 'a' && c <= 'z')
 					c -= 32;
 				std::cout << c;
 			}
-			std::cout << std::endl;
+			std::cout << " ";
 		}
+		std::cout << std::endl;
 	} else
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 	return 0;

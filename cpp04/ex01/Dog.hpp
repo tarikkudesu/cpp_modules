@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 18:11:09 by tamehri           #+#    #+#             */
-/*   Updated: 2024/05/30 14:52:59 by tamehri          ###   ########.fr       */
+/*   Created: 2024/05/30 20:39:32 by tamehri           #+#    #+#             */
+/*   Updated: 2024/05/30 21:31:37 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
-# include <iostream>
-# include "Contact.hpp"
+# include "Animal.hpp"
 
-
-class	PhoneBook
+class Dog : public Animal
 {
-	private :
-		Contact	contacts[8];
-	
 	public :
-		PhoneBook( void );
-		~PhoneBook();
-	
-		void	add( void );
-		void	search( void );
-		void	menu( void );
+		Dog();
+		~Dog();
+
+		void				makeSound( void ) const;
+		virtual std::string	getType( void ) const;
 };
 
 #endif

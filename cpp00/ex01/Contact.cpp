@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 18:11:00 by tamehri           #+#    #+#             */
-/*   Updated: 2024/05/07 10:36:41 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/05/30 14:54:16 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,11 @@ void	Contact::display_contact( void ) {
 }
 
 void	Contact::display_full_contact( void ) {
-	std::cout << "------------------------\033[1;32m CONTACT " << this->__index << " \033[0m------------------------" << std::endl;
+	std::cout << "\033[1;32m████████████████████████ CONTACT " << this->__index << " ████████████████████████\033[0m" << std::endl << std::endl;
 	std::cout << std::endl << "\tfirst name\t: \033[1;32m" << __firstname << std::endl \
 				<< "\t\033[0mlast name\t: \033[1;32m" << __lastname << std::endl \
 				<< "\t\033[0mnick name\t: \033[1;32m" << __nickname << std::endl \
 				<< "\t\033[0mphone number\t: \033[1;32m" << __phonenumber << std::endl \
 				<< "\t\033[0mdarckest secret\t: \033[1;32m" << __darkestsecret << std::endl \
-				<< "\033[0m" << std::endl;
+				<< "\033[0m" << std::endl << std::endl;
 }

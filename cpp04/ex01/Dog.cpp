@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 18:11:09 by tamehri           #+#    #+#             */
-/*   Updated: 2024/05/30 14:52:59 by tamehri          ###   ########.fr       */
+/*   Created: 2024/05/30 20:39:30 by tamehri           #+#    #+#             */
+/*   Updated: 2024/05/30 21:31:31 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#include "Dog.hpp"
 
-# include <iostream>
-# include "Contact.hpp"
+Dog::Dog() {
+	std::cout << "\033[1;33mDog Default constructor called\033[0m" << std::endl;
+	this->__type = "Dog";
+}
 
+Dog::~Dog() {
+	std::cout << "\033[1;33mDog Desctructor called\033[0m" << std::endl;
+}
 
-class	PhoneBook
-{
-	private :
-		Contact	contacts[8];
-	
-	public :
-		PhoneBook( void );
-		~PhoneBook();
-	
-		void	add( void );
-		void	search( void );
-		void	menu( void );
-};
+void	Dog::makeSound( void ) const {
+	std::cout << "Bark" << std::endl;
+}
 
-#endif
+std::string	Dog::getType( void ) const {
+	return	this->__type;
+}
