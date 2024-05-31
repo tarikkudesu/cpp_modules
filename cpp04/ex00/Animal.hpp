@@ -6,14 +6,14 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 20:39:20 by tamehri           #+#    #+#             */
-/*   Updated: 2024/05/30 21:40:31 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/05/31 10:45:25 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ANIMAL_HPP
 # define ANIMAL_HPP
 
-# include <iostream>
+# include "WrongAnimal.hpp"
 
 class Animal
 {

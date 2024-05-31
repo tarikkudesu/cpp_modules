@@ -1,6 +1,10 @@
 #include <iostream>
 #include <cmath>
 
+// python3 -m venv venv
+// source venv/bin/activate
+// python3 -m pip install pygame
+
 class DayTime
 {
 	private :
@@ -347,16 +351,19 @@ Counter	CounterD::operator--( int ) {
 class	Test
 {
 	private :
-		int value;
+		int __value;
 	public :
-		Test() : value(7) { }
-		int		getValue( void ) {return value;}
-		void	setValue( int value ) {
-			std::cout << value << std::endl;
+		Test( int value ) : __value( value ) { }
+		Test( const Test &other ) {
+			std::cout << "Copy constructor was called" << std::endl;
+			std::cout << other.__value << std::endl;
+			*this = other;
+			std::cout << this->__value << std::endl;
 		}
+		int		getValue( void ) {return __value;}
+		void	setValue( int value ) { __value = value; }
 };
 
 int main() {
-	Test t;
-	t.setValue(6);
+
 }
