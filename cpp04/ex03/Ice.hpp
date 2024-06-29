@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/06 15:26:14 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/07 14:45:45 by tamehri          ###   ########.fr       */
+/*   Created: 2024/06/29 08:52:36 by tamehri           #+#    #+#             */
+/*   Updated: 2024/06/29 09:46:20 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ICE_HPP
+# define ICE_HPP
 
-Zombie::Zombie( void ) {
+# include "ICharacter.hpp"
 
-}
+class	Ice : public AMateria
+{
+	private :
+		std::string	__name;
 
-Zombie::Zombie( std::string name ) : __name( name ) {
+	public :
+		Ice();
+		Ice( const Ice &src );
+		Ice	&operator=( const Ice &rhs );
+		~Ice();
 
-}
+		AMateria	*clone() const;
+		void		use( ICharacter &target );
+};
 
-Zombie::~Zombie( void ) {
-	std::cout << this->__name << " has been neutralized" << std::endl;
-}
-
-void	Zombie::announce( void ) {
-	std::cout << this->__name << " : BraiiiiiiinnnzzzZ..." << std::endl;
-}
+#endif

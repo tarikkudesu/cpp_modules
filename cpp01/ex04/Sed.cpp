@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 09:42:22 by tamehri           #+#    #+#             */
-/*   Updated: 2024/05/15 10:37:45 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/06/06 12:59:16 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,3 @@ void	Sed::replace( std::string s1, std::string s2) {
 	} else
 		std::cerr << "Error opening : " << this->__filename << std::endl;
 }
-
-

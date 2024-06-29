@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/06 16:22:02 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/27 08:11:49 by tamehri          ###   ########.fr       */
+/*   Created: 2024/06/29 09:06:31 by tamehri           #+#    #+#             */
+/*   Updated: 2024/06/29 11:34:17 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#ifndef CHARACTER_HPP
+# define CHARACTER_HPP
 
-# include <iostream>
+#include "ICharacter.hpp"
 
-class	Zombie
+class	Character : public ICharacter
 {
 	private :
 		std::string	__name;
-
+		AMateria	*__inventory[4];
+	
 	public :
-		Zombie( void );
-		Zombie( std::string name );
-		~Zombie( void );
+		Character();
+		Character( const std::string &name );
+		Character( const Character &src );
+		Character	&operator=( const Character &rhs );
+		~Character();
 
-		void	announce( void );
+		std::string const	&getName() const;
+		void				equip( AMateria *m );
+		void				unequip( int idx );
+		void				use( int idx, ICharacter &target );
 };
-
-Zombie	*newZombie( std::string name );
-void 	randomChump( std::string name );
-Zombie	*zombieHorde( int N, std::string name );
 
 #endif

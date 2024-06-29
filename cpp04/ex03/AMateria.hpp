@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/30 21:45:54 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/01 13:33:50 by tamehri          ###   ########.fr       */
+/*   Created: 2024/06/29 08:34:26 by tamehri           #+#    #+#             */
+/*   Updated: 2024/06/29 09:55:50 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef AMATERIA_HPP
+# define AMATERIA_HPP
 
-# include "Animal.hpp"
+# include <iostream>
 
-class Brain
+class	ICharacter;
+
+class AMateria
 {
-	private :
-		std::string	__ideas[100];
-		
-	public :
-		Brain();
-		Brain( std::string idea );
-		Brain( const Brain &src );
-		Brain	&operator=( const Brain &rhs );
-		~Brain();
+	protected :
+		std::string	__type;
 
-		void	displayIdeas( void ) const;
+	public :
+		AMateria();
+		AMateria( std::string const &type );
+		AMateria( const AMateria &src );
+		AMateria	&operator=( const AMateria &rhs );
+		virtual ~AMateria();
+
+		std::string const	&getType() const;
+		virtual AMateria	*clone() const;
+		virtual void		use( ICharacter &target );
 };
 
 #endif

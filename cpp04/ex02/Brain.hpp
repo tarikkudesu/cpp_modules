@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/06 15:26:14 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/07 14:45:45 by tamehri          ###   ########.fr       */
+/*   Created: 2024/05/30 21:45:54 by tamehri           #+#    #+#             */
+/*   Updated: 2024/06/01 15:01:09 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-Zombie::Zombie( void ) {
+# include "AAnimal.hpp"
 
-}
+class Brain
+{
+	private :
+		std::string	__ideas[100];
+		
+	public :
+		Brain();
+		Brain( std::string idea );
+		Brain( const Brain &src );
+		Brain	&operator=( const Brain &rhs );
+		~Brain();
 
-Zombie::Zombie( std::string name ) : __name( name ) {
+		void	displayIdeas( void ) const;
+};
 
-}
-
-Zombie::~Zombie( void ) {
-	std::cout << this->__name << " has been neutralized" << std::endl;
-}
-
-void	Zombie::announce( void ) {
-	std::cout << this->__name << " : BraiiiiiiinnnzzzZ..." << std::endl;
-}
+#endif

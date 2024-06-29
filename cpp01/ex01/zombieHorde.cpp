@@ -6,19 +6,17 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 16:22:11 by tamehri           #+#    #+#             */
-/*   Updated: 2024/05/12 19:49:19 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/06/27 08:11:45 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
 Zombie	*zombieHorde( int N, std::string name ) {
-	Zombie	*zombies;
+	Zombie	*zombies = new Zombie[N];
 
-	zombies = new Zombie[N];
-	for (int i = 0; i < N; i++) {
+	for (int i = 0; i < N; i++)
 		new (zombies + i) Zombie(name);
-	}
 
 	return zombies;
 }

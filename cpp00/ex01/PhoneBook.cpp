@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 18:11:06 by tamehri           #+#    #+#             */
-/*   Updated: 2024/05/30 14:53:11 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/06/24 18:27:45 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	PhoneBook::add( void ) {
 	contacts[0].new_contact();
 	for (int i = 0; i < 8; i++)
 		contacts[i].set_index(i + 1);
+	nbrContacts++;
 	system("clear");
 	this->menu();
 }
@@ -45,7 +46,7 @@ void	PhoneBook::search( void ) {
 	system("clear");
 	std::cout << "\033[1;32m███████████████████████ SEARCH ███████████████████████\033[0m" << std::endl << std::endl;
 	std::cout << "select contact" << std::endl << std::endl;
-	for (int i = 0; i < 8; i++)
+	for (int i = 0; i < nbrContacts; i++)
 		this->contacts[i].display_contact();
 
 	int	index = 0;

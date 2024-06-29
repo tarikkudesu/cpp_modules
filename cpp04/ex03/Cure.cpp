@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/06 15:26:14 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/07 14:45:45 by tamehri          ###   ########.fr       */
+/*   Created: 2024/06/29 09:37:20 by tamehri           #+#    #+#             */
+/*   Updated: 2024/06/29 09:47:14 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Cure.hpp"
 
-Zombie::Zombie( void ) {
-
-}
-
-Zombie::Zombie( std::string name ) : __name( name ) {
+Cure::Cure() : AMateria( "cure" ) {
 
 }
 
-Zombie::~Zombie( void ) {
-	std::cout << this->__name << " has been neutralized" << std::endl;
+Cure::Cure( const Cure &src ) {
+	*this = src;
 }
 
-void	Zombie::announce( void ) {
-	std::cout << this->__name << " : BraiiiiiiinnnzzzZ..." << std::endl;
+Cure	&Cure::operator=( const Cure &rhs ) {
+	if (this != &rhs)
+		this->__type = rhs.getType();
+	return *this;
+}
+
+Cure::~Cure() {
+
+}
+
+AMateria	*Cure::clone() const {
+	return new Cure( *this );
+}
+
+void		Cure::use( ICharacter &target ) {
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }

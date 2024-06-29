@@ -83,6 +83,7 @@ class Complex
 	private :
 		int __Re;
 		int __Im;
+
 	public :
 		Complex();
 		Complex( int Re, int Im );
@@ -347,23 +348,32 @@ Counter	CounterD::operator--( int ) {
 }
 
 /*------------------------------------------------ main ---------------------------------------------------*/
-
-class	Test
+class Test
 {
+
 	private :
-		int __value;
+		int *ptr;
 	public :
-		Test( int value ) : __value( value ) { }
-		Test( const Test &other ) {
-			std::cout << "Copy constructor was called" << std::endl;
-			std::cout << other.__value << std::endl;
-			*this = other;
-			std::cout << this->__value << std::endl;
+		Test() {
+			ptr = new int(6);
+			*ptr = 9;
 		}
-		int		getValue( void ) {return __value;}
-		void	setValue( int value ) { __value = value; }
+		Test( const Test &src ) {
+			ptr = new int(*src.ptr);
+		}
+		~Test() {
+			delete ptr;
+		}
 };
+
+#include <libc.h>
 
 int main() {
 
+	Complex a(4, 3);
+	Complex b(5, 7);
+
+	a + b;
+	float x = 1 << 8;
+	std::cout << x << "\n"; 
 }

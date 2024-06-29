@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/30 21:45:54 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/01 13:33:50 by tamehri          ###   ########.fr       */
+/*   Created: 2024/06/29 10:40:30 by tamehri           #+#    #+#             */
+/*   Updated: 2024/06/29 11:40:45 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef MATERISSOURCE_HPP
+# define MATERISSOURCE_HPP
 
-# include "Animal.hpp"
+# include "IMateriaSource.hpp"
 
-class Brain
+class	MateriaSource : public IMateriaSource
 {
 	private :
-		std::string	__ideas[100];
-		
+		AMateria	*__materias[4];
+	
 	public :
-		Brain();
-		Brain( std::string idea );
-		Brain( const Brain &src );
-		Brain	&operator=( const Brain &rhs );
-		~Brain();
+		MateriaSource();
+		MateriaSource( const MateriaSource &src );
+		MateriaSource	&operator=( const MateriaSource &rhs );
+		~MateriaSource();
 
-		void	displayIdeas( void ) const;
+		void		learnMateria(AMateria*);
+		AMateria	*createMateria(std::string const & type);
 };
 
 #endif

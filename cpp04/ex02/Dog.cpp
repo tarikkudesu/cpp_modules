@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 20:39:30 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/01 13:42:58 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/06/01 15:00:33 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Dog::Dog() {
 	this->__dogBrain = new Brain("Dog is thinkng about cats");
 }
 
-Dog::Dog( const Dog &src ) : Animal(src) {
+Dog::Dog( const Dog &src ) : AAnimal(src) {
 	std::cout << "\033[1;33mDog copy constructor called\033[0m" << std::endl;
 	this->__dogBrain = new Brain( *src.__dogBrain );
 }

@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/06 15:26:14 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/07 14:45:45 by tamehri          ###   ########.fr       */
+/*   Created: 2024/05/30 20:39:27 by tamehri           #+#    #+#             */
+/*   Updated: 2024/06/23 13:57:37 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef CAT_HPP
+# define CAT_HPP
 
-Zombie::Zombie( void ) {
+# include "AAnimal.hpp"
+# include "Brain.hpp"
 
-}
+class Cat : public AAnimal
+{
+	private :
+		Brain	*__catBrain;
 
-Zombie::Zombie( std::string name ) : __name( name ) {
+	public :
+		Cat();
+		Cat( const Cat &src );
+		Cat &operator=( const Cat &rhs );
+		~Cat();
 
-}
+		void		makeSound( void ) const;
+		std::string	getType( void ) const;
+};
 
-Zombie::~Zombie( void ) {
-	std::cout << this->__name << " has been neutralized" << std::endl;
-}
-
-void	Zombie::announce( void ) {
-	std::cout << this->__name << " : BraiiiiiiinnnzzzZ..." << std::endl;
-}
+#endif

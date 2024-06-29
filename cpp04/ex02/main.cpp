@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/06 15:26:14 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/07 14:45:45 by tamehri          ###   ########.fr       */
+/*   Created: 2024/05/30 20:39:35 by tamehri           #+#    #+#             */
+/*   Updated: 2024/06/01 15:00:50 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
 
-Zombie::Zombie( void ) {
+int main( void ) {
+	{
+		const AAnimal	*j = new Dog();
+		const AAnimal	*i = new Cat();
 
-}
+		delete j;
+		delete i;
+	}
+	std::cout << std::endl;
+	{
+		AAnimal	*i = new Cat();
+		AAnimal	*j = new Cat();
 
-Zombie::Zombie( std::string name ) : __name( name ) {
+		*i = *j;
 
-}
-
-Zombie::~Zombie( void ) {
-	std::cout << this->__name << " has been neutralized" << std::endl;
-}
-
-void	Zombie::announce( void ) {
-	std::cout << this->__name << " : BraiiiiiiinnnzzzZ..." << std::endl;
+		delete i;
+		delete j;
+	}
+	return 0;
 }

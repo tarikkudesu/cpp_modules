@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/06 15:26:14 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/07 14:45:45 by tamehri          ###   ########.fr       */
+/*   Created: 2024/06/29 08:52:31 by tamehri           #+#    #+#             */
+/*   Updated: 2024/06/29 09:47:21 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Ice.hpp"
 
-Zombie::Zombie( void ) {
-
-}
-
-Zombie::Zombie( std::string name ) : __name( name ) {
+Ice::Ice() : AMateria( "ice" ) {
 
 }
 
-Zombie::~Zombie( void ) {
-	std::cout << this->__name << " has been neutralized" << std::endl;
+Ice::Ice( const Ice &src ) {
+	*this = src;
 }
 
-void	Zombie::announce( void ) {
-	std::cout << this->__name << " : BraiiiiiiinnnzzzZ..." << std::endl;
+Ice	&Ice::operator=( const Ice &rhs ) {
+	if (this != &rhs)
+		this->__type = rhs.getType();
+	return *this;
+}
+
+Ice::~Ice() {
+
+}
+
+AMateria	*Ice::clone() const {
+	return new Ice( *this );
+}
+
+void		Ice::use( ICharacter &target ) {
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }
