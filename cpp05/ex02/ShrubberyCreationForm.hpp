@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/29 09:02:34 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/30 09:43:04 by tamehri          ###   ########.fr       */
+/*   Created: 2024/06/30 17:27:54 by tamehri           #+#    #+#             */
+/*   Updated: 2024/06/30 17:37:58 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICHARACTER_HPP
-# define ICHARACTER_HPP
+#ifndef __SCFORM_HPP__
+# define __SCFORM_HPP__
 
-#include "AMateria.hpp"
+#include "AForm.hpp"
+#include "Bureaucrat.hpp"
 
-class	ICharacter
+class	ShrubberyCreationForm : public AForm
 {
 	public :
-		virtual ~ICharacter();
-
-		virtual std::string const	&getName() const = 0;
-		virtual void				equip( AMateria *m ) = 0;
-		virtual void				unequip( int idx ) = 0;
-		virtual void				use( int idx, ICharacter &target ) = 0;
+		ShrubberyCreationForm();
+		ShrubberyCreationForm( const ShrubberyCreationForm &src );
+		ShrubberyCreationForm	&operator=( const ShrubberyCreationForm &rhs );
+		~ShrubberyCreationForm();
 };
 
 #endif

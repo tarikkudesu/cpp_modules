@@ -17,18 +17,14 @@ Point::~Point() {
 }
 
 Point	&Point::operator=( Point const &rhs ) {
-	if (this != &rhs) {
-		Fixed &tmp1 = const_cast<Fixed &>(this->__x);
-		Fixed &tmp2 = const_cast<Fixed &>(this->__y);
-		tmp1.setRawBits(rhs.__x.toInt());
-		tmp2.setRawBits(rhs.__y.toInt());
-	}
+	(void)rhs;
 	return *this;
 }
 
-Fixed	Point::getArea( Point const &a, Point const &b, Point const &c) {
-	Fixed	tmp(a.__x * (b.__y - c.__y) + b.__x * (b.__y - a.__y) + c.__x * (a.__y - b.__y));
+Fixed	Point::getArea( Point const &a, Point const &b, Point const &c ) {
+	Fixed	tmp(a.__x * (b.__y - c.__y) + b.__x * (c.__y - a.__y) + c.__x * (a.__y - b.__y));
 	tmp = tmp / 2;
+	tmp < 0 ? 0 - tmp : tmp;
 	return tmp;
 }
 

@@ -27,10 +27,7 @@ class DayTime
 		DayTime	&operator++();
 };
 
-DayTime::DayTime() {
-	this->__hour = 0;
-	this->__minute = 0;
-	this->__second = 0;
+DayTime::DayTime() : __hour(0), __minute(0), __second(0) {
 	std::cout << "Default constructor is called" << std::endl;
 }
 
@@ -42,7 +39,7 @@ DayTime::~DayTime() {
 	std::cout << "Destructor is called" << std::endl;
 }
 
-void	DayTime::setTime(int h, int m, int s) {
+void	DayTime::setTime( int h, int m, int s ) {
 	this->__hour = h;
 	this->__minute = m;
 	this->__second = s;
@@ -348,32 +345,66 @@ Counter	CounterD::operator--( int ) {
 }
 
 /*------------------------------------------------ main ---------------------------------------------------*/
-class Test
+int Max = 3;
+class Stack
 {
-
 	private :
-		int *ptr;
+		int	st[3];
+		int top;
+
 	public :
-		Test() {
-			ptr = new int(6);
-			*ptr = 9;
-		}
-		Test( const Test &src ) {
-			ptr = new int(*src.ptr);
-		}
-		~Test() {
-			delete ptr;
-		}
+		Stack();
+		void	push(int var);
+		int		pop();
+		class	Empty;
+		class	Full;
 };
 
-#include <libc.h>
+class Stack::Full
+{
+
+};
+
+class Stack::Empty
+{
+
+};
+
+Stack::Stack() {
+	top = -1;
+}
+
+void	Stack::push(int var) {
+	if (top >= Max - 1)
+		throw Full();
+	st[++top] = var;
+}
+
+int	Stack::pop() {
+	if (top < 0)
+		throw Empty();
+	return st[top--];
+}
 
 int main() {
+	Stack s1;
 
-	Complex a(4, 3);
-	Complex b(5, 7);
-
-	a + b;
-	float x = 1 << 8;
-	std::cout << x << "\n"; 
+	try {
+		s1.push(11);
+		s1.push(22);
+		s1.push(33);
+		// s1.push(44);
+		// s1.push(55);
+		std::cout << "1 : " << s1.pop() << std::endl;
+		std::cout << "2 : " << s1.pop() << std::endl;
+		std::cout << "3 : " << s1.pop() << std::endl;
+		std::cout << "4 : " << s1.pop() << std::endl;
+		std::cout << "5 : " << s1.pop() << std::endl;
+	} catch (Stack::Full) {
+		std::cout << "Exception : stack full" << std::endl;
+	} catch (Stack::Empty) {
+		std::cout << "Exception : stack empty" << std::endl;
+	}
+	std::cout << "normal exit" << std::endl;
+	return (0);
 }

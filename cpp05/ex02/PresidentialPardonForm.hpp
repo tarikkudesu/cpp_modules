@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/29 09:02:34 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/30 09:43:04 by tamehri          ###   ########.fr       */
+/*   Created: 2024/06/30 17:25:49 by tamehri           #+#    #+#             */
+/*   Updated: 2024/06/30 17:39:25 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICHARACTER_HPP
-# define ICHARACTER_HPP
+#ifndef __PPFORM_HPP__
+# define __PPFORM_HPP__
 
-#include "AMateria.hpp"
+#include "AForm.hpp"
+#include "Bureaucrat.hpp"
 
-class	ICharacter
+class	PresidentialPardonForm : public AForm
 {
 	public :
-		virtual ~ICharacter();
-
-		virtual std::string const	&getName() const = 0;
-		virtual void				equip( AMateria *m ) = 0;
-		virtual void				unequip( int idx ) = 0;
-		virtual void				use( int idx, ICharacter &target ) = 0;
+		PresidentialPardonForm();
+		PresidentialPardonForm( const PresidentialPardonForm &src );
+		PresidentialPardonForm	&operator=( const PresidentialPardonForm &rhs );
+		~PresidentialPardonForm();
 };
 
 #endif

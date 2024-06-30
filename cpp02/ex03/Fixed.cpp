@@ -33,27 +33,27 @@ Fixed	&Fixed::operator=( Fixed const &rhs ) {
 }
 
 bool	Fixed::operator>( Fixed const &rhs ) const {
-	return this->toFloat() > rhs.toFloat() ? true : false;
+	return this->toFloat() > rhs.toFloat();
 }
 
 bool	Fixed::operator<( Fixed const &rhs ) const {
-	return this->toFloat() < rhs.toFloat() ? true : false;
+	return this->toFloat() < rhs.toFloat();
 }
 
 bool	Fixed::operator>=( Fixed const &rhs ) const {
-	return this->toFloat() >= rhs.toFloat() ? true : false;
+	return this->toFloat() >= rhs.toFloat();
 }
 
 bool	Fixed::operator<=( Fixed const &rhs ) const {
-	return this->toFloat() <= rhs.toFloat() ? true : false;
+	return this->toFloat() <= rhs.toFloat();
 }
 
 bool	Fixed::operator==( Fixed const &rhs ) const {
-	return this->toFloat() == rhs.toFloat() ? true : false;
+	return this->toFloat() == rhs.toFloat();
 }
 
 bool	Fixed::operator!=( Fixed const &rhs ) const {
-	return this->toFloat() != rhs.toFloat() ? true : false;
+	return this->toFloat() != rhs.toFloat();
 }
 
 Fixed	Fixed::operator+( Fixed const &rhs ) const {

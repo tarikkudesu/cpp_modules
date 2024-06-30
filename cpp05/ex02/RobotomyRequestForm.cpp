@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/29 09:02:34 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/30 09:43:04 by tamehri          ###   ########.fr       */
+/*   Created: 2024/06/30 17:28:23 by tamehri           #+#    #+#             */
+/*   Updated: 2024/06/30 17:39:33 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICHARACTER_HPP
-# define ICHARACTER_HPP
+#include "AForm.hpp"
+#include "Bureaucrat.hpp"
+#include "RobotomyRequestForm.hpp"
 
-#include "AMateria.hpp"
+RobotomyRequestForm::RobotomyRequestForm() {
 
-class	ICharacter
-{
-	public :
-		virtual ~ICharacter();
+}
 
-		virtual std::string const	&getName() const = 0;
-		virtual void				equip( AMateria *m ) = 0;
-		virtual void				unequip( int idx ) = 0;
-		virtual void				use( int idx, ICharacter &target ) = 0;
-};
+RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm &src ) {
 
-#endif
+}
+
+RobotomyRequestForm	&RobotomyRequestForm::operator=( const RobotomyRequestForm &rhs ) {
+
+}
+
+RobotomyRequestForm::~RobotomyRequestForm() {
+
+}
