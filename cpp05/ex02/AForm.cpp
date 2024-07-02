@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 09:59:07 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/30 17:22:42 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/07/01 19:34:01 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ AForm::AForm() : __isSigned( false ), __execGrade( 150 ), __signGrade( 150 ) {
 
 AForm::AForm( const std::string &name ) : __name( name ), __isSigned( false ), __execGrade( 100 ), __signGrade( 100 ) {
 
+}
+
+AForm::AForm( const std::string &name, int exec, int sign ) : __name( name ), __isSigned( false ), __execGrade( exec ), __signGrade( sign ) {
+	
 }
 
 AForm::AForm( const AForm &src ) : __name(src.__name), __execGrade( src.__execGrade ), __signGrade( src.__signGrade ) {

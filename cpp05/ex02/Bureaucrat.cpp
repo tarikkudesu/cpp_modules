@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 20:32:08 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/30 17:23:24 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/07/01 13:47:10 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,12 @@ void	Bureaucrat::gradeUp( void ) {
 	if (this->__grade - 1 == 0)
 		throw GradeTooHighException();
 	this->__grade--;
-	// std::cout << this->getName() << " : has been graded up, new Grade : " << this->getGrade() << std::endl;
 }
 
 void	Bureaucrat::gradeDown( void ) {
 	if (this->__grade + 1 == 151)
 		throw GradeTooLowException();
 	this->__grade++;
-	// std::cout << this->getName() << " : has been graded down, new Grade : " << this->getGrade() << std::endl;
 }
 
 void		Bureaucrat::signForm( AForm &form ) {

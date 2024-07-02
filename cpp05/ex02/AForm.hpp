@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 09:59:24 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/30 17:21:40 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/07/01 14:09:43 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class	AForm
 	public :
 		AForm();
 		AForm( const std::string &name );
+		AForm( const std::string &name, int exec, int sign );
 		AForm( const AForm &src );
 		AForm	&operator=(const AForm &rhs );
 		~AForm();
