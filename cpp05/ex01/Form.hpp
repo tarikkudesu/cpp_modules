@@ -20,18 +20,30 @@ class	Form
 	private :
 		std::string const	__name;
 		bool				__isSigned;
-		int const			__execGrade;
 		int const			__signGrade;
+		int const			__execGrade;
 
 	public :
 		Form();
-		Form( const std::string &name );
+		Form( const std::string &name, int sign, int exec );
 		Form( const Form &src );
-		Form	&operator=(const Form &rhs );
+		Form	&operator=( const Form &rhs );
 		~Form();
 
-		class	GradeTooHighException {};
-		class	GradeTooLowException {};
+		class	GradeTooHighException : public std::exception {
+			public :
+				std::string	__error;
+				GradeTooHighException() : __error( "Grade too high" ) {}
+				GradeTooHighException( std::string const &error ) : __error( error ) {}
+				const char	*what() const throw() { return ; }
+		};
+		class	GradeTooLowException : public std::exception {
+			public :
+				std::string	__error;
+				GradeTooLowException() : __error( "Grade too high" ) {}
+				GradeTooLowException( std::string const &error ) : __error( error ) {}
+				const char	*what() const throw() { return "Grade too low"; }
+		};
 		
 		std::string	getName( void ) const ;
 		bool		getStat( void ) const ;

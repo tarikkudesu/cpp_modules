@@ -12,21 +12,22 @@
 
 #include "Form.hpp"
 
-Form::Form() : __isSigned( false ), __execGrade( 150 ), __signGrade( 150 ) {
+Form::Form() : __name( "Default" ), __isSigned( false ), __signGrade( 150 ), __execGrade( 150 ) {
 
 }
 
-Form::Form( const std::string &name ) : __name( name ), __isSigned( false ), __execGrade( 100 ), __signGrade( 100 ) {
-
+Form::Form( const std::string &name, int sign, int exec ) : __name( name ), __isSigned( false ), __signGrade( sign ), __execGrade( exec ) {
+	sign > 150 ? throw GradeTooLowException() : false;
+	sign < 1 ? throw GradeTooHighException() : false;
 }
 
-Form::Form( const Form &src ) : __name(src.__name), __execGrade( src.__execGrade ), __signGrade( src.__signGrade ) {
+Form::Form( const Form &src ) : __name(src.__name), __signGrade( src.__signGrade ), __execGrade( src.__execGrade ) {
 	*this = src;
 }
 
 Form	&Form::operator=(const Form &rhs ) {
 	if (this != &rhs)
-		this->__isSigned = rhs.__isSigned;
+		this->__isSigned = rhs.getStat();
 	return *this;
 }
 
@@ -51,11 +52,7 @@ int		Form::getSignGrade( void ) const {
 }
 
 void		Form::beSigned( const Bureaucrat &bureaucrat ) {
-	if (bureaucrat.getGrade() <= this->getSignGrade()) {
-		std::cout << bureaucrat.getName() << " signed " << this->getName() << std::endl;
-		this->__isSigned = true;
-	} else
-		throw Form::GradeTooLowException();
+	bureaucrat.getGrade() <= this->getStat() ? this->__isSigned = true : throw GradeTooLowException();
 }
 
 std::ostream	&operator<<( std::ostream &o, const Form &form ){

@@ -13,22 +13,31 @@
 #include "Bureaucrat.hpp"
 
 int main( void ) {
-	Bureaucrat	stan( "stan" );
-	Bureaucrat	bruce( "bruce" );
 
-	std::cout << stan;
 	try {
-		stan.gradeDown();
-	} catch (Bureaucrat::GradeTooLowException) {
-		std::cout << stan.getName() << " : already the lowest grade possible" << std::endl;	
+
+		Bureaucrat	stan( "stan", 100 );
+		std::cout << stan << std::endl;
+		stan.gradeUp();
+		std::cout << stan << std::endl;
+
+		Bureaucrat	bruce( "bruce" , 150);
+		std::cout << bruce << std::endl;
+		bruce.gradeDown();
+		std::cout << bruce << std::endl;
+
+	} catch ( const std::exception &e ) {
+		std::cerr << "Error : " << e.what() << std::endl;	
 	}
 
-	std::cout << bruce;
-	for (int i = 0; i < 150; i++) {
-		try {
-			bruce.gradeUp();
-		} catch (Bureaucrat::GradeTooHighException) {
-			std::cout << stan.getName() << " : already the highest grade possible" << std::endl;
-		}
+	try {
+
+		Bureaucrat	stan( "stan" , 0);
+		std::cout << stan << std::endl;
+
+	} catch ( const std::exception &e ) {
+		std::cerr << "Error : " << e.what() << std::endl;	
 	}
+
+	return 0;
 }

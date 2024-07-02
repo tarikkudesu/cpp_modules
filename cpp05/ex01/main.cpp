@@ -14,22 +14,6 @@
 #include "Bureaucrat.hpp"
 
 int main( void ) {
-	Bureaucrat	me( "Rick" );
-	Form		birth( "Birth" );
 
-	std::cout << me << std::endl;
-	me.signForm( birth );
-	std::cout << birth << std::endl;
-
-	try {
-		for (int i = 0; i < 100; i++)
-			me.gradeUp();
-	} catch (Bureaucrat::GradeTooHighException) {
-		std::cout << me.getName() << " : already the highest grade possible" << std::endl;
-	}
-	
-	std::cout << me << std::endl;
-	me.signForm( birth );
-	std::cout << birth << std::endl;
 
 }

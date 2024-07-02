@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 20:31:19 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/30 15:27:11 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/06/30 09:53:42 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,28 @@ class	Bureaucrat
 		int			__grade;
 
 	public :
-		class		GradeTooHighException {};
-		class		GradeTooLowException {};
-
 		Bureaucrat();
-		Bureaucrat( const std::string &name );
+		Bureaucrat( const std::string &name, int grade );
 		Bureaucrat( const Bureaucrat &src );
 		Bureaucrat	&operator=( const Bureaucrat &rhs );
 		~Bureaucrat();
 
-		std::string	getName( void ) const ;
-		int			getGrade( void ) const ;
-		void		gradeUp( void );
-		void		gradeDown( void );
+		std::string	getName() const ;
+		int			getGrade() const ;
+		void		gradeDown();
+		void		gradeUp();
+
 		void		signForm( Form &form );
+
+		class		GradeTooHighException : public std::exception {
+			const char	*what() const throw() { return "Grade too high"; }
+		};
+
+		class		GradeTooLowException : public std::exception {
+			const char	*what() const throw() { return "Grade too low"; }
+		};
 };
 
-std::ostream	&operator<<( std::ostream &o, const Bureaucrat &bureaucrat );
+std::ostream	&operator<<( std::ostream &o, const Bureaucrat &src );
 
 #endif

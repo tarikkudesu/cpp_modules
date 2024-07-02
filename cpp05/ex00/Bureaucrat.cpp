@@ -12,12 +12,13 @@
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : __grade(150) {
+Bureaucrat::Bureaucrat() : __name("Default"), __grade(150) {
 	
 }
 
-Bureaucrat::Bureaucrat( const std::string &name ) : __name( name ), __grade(150) {
-	
+Bureaucrat::Bureaucrat( const std::string &name, int grade ) : __name( name ), __grade( grade ) {
+	grade > 150 ? throw GradeTooLowException() : false;
+	grade < 1 ? throw GradeTooHighException() : false;
 }
 
 Bureaucrat::Bureaucrat( const Bureaucrat &src ) {
@@ -48,17 +49,15 @@ void	Bureaucrat::gradeUp() {
 	if (this->__grade - 1 == 0)
 		throw GradeTooHighException();
 	this->__grade--;
-	std::cout << this->getName() << " : has been graded up, new Grade : " << this->getGrade() << std::endl;
 }
 
 void	Bureaucrat::gradeDown() {
 	if (this->__grade + 1 == 151)
 		throw GradeTooLowException();
 	this->__grade++;
-	std::cout << this->getName() << " : has been graded down, new Grade : " << this->getGrade() << std::endl;
 }
 
 std::ostream	&operator<<( std::ostream &o, const Bureaucrat &src ) {
-	std::cout << src.getName() << " : Bureaucrat of grade " << src.getGrade() << std::endl;
+	std::cout << src.getName() << " : Bureaucrat of grade " << src.getGrade();
 	return o;
 }

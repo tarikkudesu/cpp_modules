@@ -130,8 +130,10 @@ void	Complex::Display() {
 
 Complex	&Complex::operator=( const Complex &other ) {
 	std::cout << "copy assignement is called" << std::endl;	
-	if (this != &other)
-		this->__Im = other.__Im; this->__Re = other.__Re;
+	if (this != &other) {
+		this->__Im = other.__Im;
+		this->__Re = other.__Re;
+	}
 	return *this;
 }
 
@@ -345,66 +347,69 @@ Counter	CounterD::operator--( int ) {
 }
 
 /*------------------------------------------------ main ---------------------------------------------------*/
-int Max = 3;
-class Stack
+
+
+class Distance
 {
 	private :
-		int	st[3];
-		int top;
+		int		__feet;
+		float	__inches;
 
 	public :
-		Stack();
-		void	push(int var);
-		int		pop();
-		class	Empty;
-		class	Full;
+		class	InchesException;
+
+		Distance();
+		Distance( int feet, float inches );
+		void	getDistance( void );
+		void	printDistance( void );
+
 };
 
-class Stack::Full
+class	Distance::InchesException
 {
+	public :
+		std::string	__origin;
+		float		__ivalue;
+
+		InchesException( std::string origin, float ivalue ) : __origin(origin), __ivalue(ivalue) {
+
+		}
 
 };
 
-class Stack::Empty
-{
+Distance::Distance() : __feet(0), __inches(0.f) {
 
-};
-
-Stack::Stack() {
-	top = -1;
 }
 
-void	Stack::push(int var) {
-	if (top >= Max - 1)
-		throw Full();
-	st[++top] = var;
+Distance::Distance( int feet, float inches ) : __feet(feet), __inches(inches) {
+	if (inches >= 12.f)
+		throw InchesException( "2-arg constructor", inches);
 }
 
-int	Stack::pop() {
-	if (top < 0)
-		throw Empty();
-	return st[top--];
+void	Distance::getDistance( void ) {
+	std::cout << "Enter feet : "; std::cin >> this->__feet;
+	std::cout << "Enter inches : "; std::cin >> this->__inches;
+	if (this->__inches >= 12.f)
+		throw InchesException( "get Distance method", this->__inches );
 }
+
+void	Distance::printDistance( void ) {
+	std::cout << __feet << "-" << __inches << std::endl;
+}
+
 
 int main() {
-	Stack s1;
 
 	try {
-		s1.push(11);
-		s1.push(22);
-		s1.push(33);
-		// s1.push(44);
-		// s1.push(55);
-		std::cout << "1 : " << s1.pop() << std::endl;
-		std::cout << "2 : " << s1.pop() << std::endl;
-		std::cout << "3 : " << s1.pop() << std::endl;
-		std::cout << "4 : " << s1.pop() << std::endl;
-		std::cout << "5 : " << s1.pop() << std::endl;
-	} catch (Stack::Full) {
-		std::cout << "Exception : stack full" << std::endl;
-	} catch (Stack::Empty) {
-		std::cout << "Exception : stack empty" << std::endl;
+		Distance	dist1( 5, 2.f );
+		Distance	dist2;
+
+		dist1.printDistance();
+		dist2.getDistance();
+
+	} catch ( Distance::InchesException &e ) {
+		std::cout << "initialization error in : " << e.__origin \
+			<< "\ninches value of : " << e.__ivalue << " is too large";
 	}
-	std::cout << "normal exit" << std::endl;
-	return (0);
+	std::cout << std::endl;
 }
