@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 14:19:35 by tamehri           #+#    #+#             */
-/*   Updated: 2024/07/01 16:52:34 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/07/03 12:32:54 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class	ClapTrap
 
 	public :
 		ClapTrap();
-		ClapTrap( std::string name );
+		ClapTrap( std::string const &name );
 		ClapTrap( const ClapTrap &src );
 		~ClapTrap();
 		ClapTrap	&operator=( const ClapTrap &rhs );

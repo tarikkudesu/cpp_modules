@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 09:59:24 by tamehri           #+#    #+#             */
-/*   Updated: 2024/07/01 14:09:43 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/07/02 19:59:05 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,30 @@ class	AForm
 	private :
 		std::string const	__name;
 		bool				__isSigned;
-		int const			__execGrade;
 		int const			__signGrade;
+		int const			__execGrade;
 
 	public :
 		AForm();
-		AForm( const std::string &name );
-		AForm( const std::string &name, int exec, int sign );
+		AForm( const std::string &name, int sign, int exec );
 		AForm( const AForm &src );
-		AForm	&operator=(const AForm &rhs );
+		AForm	&operator=( const AForm &rhs );
 		~AForm();
 
-		class	GradeTooHighException {};
-		class	GradeTooLowException {};
+		class	GradeTooHighException : public std::exception {
+			public :
+				std::string	__error;
+				GradeTooHighException() : __error( "Grade too high" ) {}
+				GradeTooHighException( std::string const &error ) : __error( error ) {}
+				const char	*what() const throw() { return ; }
+		};
+		class	GradeTooLowException : public std::exception {
+			public :
+				std::string	__error;
+				GradeTooLowException() : __error( "Grade too high" ) {}
+				GradeTooLowException( std::string const &error ) : __error( error ) {}
+				const char	*what() const throw() { return "Grade too low"; }
+		};
 		
 		std::string	getName( void ) const ;
 		bool		getStat( void ) const ;

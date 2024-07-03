@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 17:03:56 by tamehri           #+#    #+#             */
-/*   Updated: 2024/05/23 18:13:30 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/07/03 12:51:17 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ class FragTrap : public ClapTrap
 {
 	public :
 		FragTrap();
-		FragTrap( std::string name );
+		FragTrap( std::string const &name );
+		FragTrap( const FragTrap &src );
+		FragTrap	&operator=( FragTrap const &rhs );
 		~FragTrap();
 
 		void	attack( const std::string &target );

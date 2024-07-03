@@ -1,4 +1,4 @@
-SRC		=	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+SRC		=	./main.cpp ./ClapTrap.cpp ./ScavTrap.cpp ./FragTrap.cpp
 OBJ		=	$(SRC:.cpp=.o)
 NAME	=	fragtrap
 
@@ -7,7 +7,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@c++ -Wall -Wextra -Werror -std=c++98 $(OBJ) -o $(NAME)
 
-%.o: %.cpp ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
+%.o: %.cpp ./ClapTrap.hpp ./ScavTrap.hpp ./FragTrap.hpp
 	@c++ -Wall -Wextra -Werror -std=c++98 -c $< -o $@
 
 clean:

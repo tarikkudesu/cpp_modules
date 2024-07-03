@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 09:59:07 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/30 17:18:01 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/07/02 20:04:42 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void		Form::beSigned( const Bureaucrat &bureaucrat ) {
 
 std::ostream	&operator<<( std::ostream &o, const Form &form ){
 	std::string	mess(" : signed, requires ");
+
 	if (form.getStat() == false)
 		mess.insert(3, "not ");
 	std::cout << form.getName() << mess << form.getSignGrade() << " to be signed and " << form.getExecGrade() << " to be executed";

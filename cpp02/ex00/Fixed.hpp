@@ -17,9 +17,6 @@ class	Fixed
 
 		int 	getRawBits( void ) const;
 		void	setRawBits( int const raw );
-		void	p( void ) {
-			std::cout << __fracBits << std::endl;
-		}
 };
 
 #endif
