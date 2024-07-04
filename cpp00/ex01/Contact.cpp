@@ -6,18 +6,16 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 18:11:00 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/23 15:15:04 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/07/04 17:22:57 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-
-int	Contact::__nbContacts = 0;
-
 Contact::Contact( void ) {
-	__index = __nbContacts + 1;
-	__nbContacts++;
+	static int	k;
+
+	__index = ++k;
 }
 
 Contact::~Contact( void ) {

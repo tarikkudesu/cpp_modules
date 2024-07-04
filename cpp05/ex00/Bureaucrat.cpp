@@ -6,13 +6,13 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 20:32:08 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/30 09:46:56 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/07/04 11:31:18 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : __name("Default"), __grade(150) {
+Bureaucrat::Bureaucrat() : __name( "Default" ), __grade( 150 ) {
 	
 }
 
