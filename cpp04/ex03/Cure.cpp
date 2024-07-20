@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 09:37:20 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/29 09:47:14 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/07/19 20:32:48 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Cure::Cure( const Cure &src ) {
 
 Cure	&Cure::operator=( const Cure &rhs ) {
 	if (this != &rhs)
-		this->__type = rhs.getType();
+		this->__type = "cure";
 	return *this;
 }
 

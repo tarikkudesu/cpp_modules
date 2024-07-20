@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 09:02:34 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/30 09:43:04 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/07/19 20:33:11 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class	ICharacter
 {
 	public :
-		virtual ~ICharacter();
+		virtual ~ICharacter() {}
 
 		virtual std::string const	&getName() const = 0;
 		virtual void				equip( AMateria *m ) = 0;

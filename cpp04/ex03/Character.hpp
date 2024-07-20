@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 09:06:31 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/29 11:34:17 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/07/19 20:34:52 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class	Character : public ICharacter
 	private :
 		std::string	__name;
 		AMateria	*__inventory[4];
+		AMateria	*__trash[4];
 	
 	public :
 		Character();

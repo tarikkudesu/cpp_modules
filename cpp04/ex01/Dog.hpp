@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 20:39:32 by tamehri           #+#    #+#             */
-/*   Updated: 2024/05/31 12:08:19 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/07/19 18:21:27 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define DOG_HPP
 
 # include "Animal.hpp"
-# include "Brain.hpp"
 
 class Dog : public Animal
 {

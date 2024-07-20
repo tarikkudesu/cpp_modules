@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 08:40:10 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/29 11:39:51 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/07/19 21:00:28 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ AMateria::AMateria() {
 
 }
 
-AMateria::AMateria( std::string const &type ) : __type(type) {
+AMateria::AMateria( std::string const &type ) : __type( type ) {
 
 }
 
@@ -26,7 +26,7 @@ AMateria::AMateria( const AMateria &src ) {
 
 AMateria	&AMateria::operator=( const AMateria &rhs ) {
 	if (this != &rhs)
-		this->__type = rhs.__type;
+		this->__type = rhs.getType();
 	return *this;
 }
 

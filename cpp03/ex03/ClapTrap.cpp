@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 14:20:39 by tamehri           #+#    #+#             */
-/*   Updated: 2024/07/03 14:43:19 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/07/05 10:02:11 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ ClapTrap &ClapTrap::operator=( const ClapTrap &rhs ) {
 		this->__name = rhs.__name;
 		this->__HitPoints = rhs.__HitPoints;
 		this->__AttackDamage = rhs.__AttackDamage;
-		this->__EnergyPoints = rhs.__EnergyPoints;	
+		this->__EnergyPoints = rhs.__EnergyPoints;
 	}
 	return *this;
 }

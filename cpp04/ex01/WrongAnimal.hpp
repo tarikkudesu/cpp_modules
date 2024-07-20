@@ -1,17 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IMateriaSource.cpp                                 :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/29 10:58:30 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/29 10:58:51 by tamehri          ###   ########.fr       */
+/*   Created: 2024/05/31 10:17:59 by tamehri           #+#    #+#             */
+/*   Updated: 2024/07/20 09:02:25 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "IMateriaSource.hpp"
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
-IMateriaSource::~IMateriaSource() {
-	
-}
+# include "Animal.hpp"
+
+class WrongAnimal
+{
+	protected :
+		std::string	__type;
+
+	public :
+		WrongAnimal();
+		WrongAnimal( const WrongAnimal &src );
+		WrongAnimal	&operator=( const WrongAnimal &rhs );
+		~WrongAnimal();
+
+		void		makeSound( void ) const;
+		std::string	getType( void ) const;
+};
+
+#endif

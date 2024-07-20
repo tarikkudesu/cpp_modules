@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 17:03:35 by tamehri           #+#    #+#             */
-/*   Updated: 2024/07/04 11:29:02 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/07/05 10:02:32 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ FragTrap	&FragTrap::operator=( FragTrap const &rhs ) {
 		this->__name = rhs.__name;
 		this->__HitPoints = rhs.__HitPoints;
 		this->__AttackDamage = rhs.__AttackDamage;
-		this->__EnergyPoints = rhs.__EnergyPoints;	
+		this->__EnergyPoints = rhs.__EnergyPoints;
 	}
 	return *this;
 }

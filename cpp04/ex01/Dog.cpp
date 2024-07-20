@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 20:39:30 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/01 13:42:58 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/07/19 18:23:24 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ Dog::Dog( const Dog &src ) : Animal(src) {
 
 Dog	&Dog::operator=( const Dog &rhs ) {
 	if (this != &rhs) {
+		Animal::operator=( rhs );
 		delete this->__dogBrain;
 		this->__dogBrain = new Brain( *rhs.__dogBrain );
 	}

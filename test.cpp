@@ -399,7 +399,6 @@ void	Distance::printDistance( void ) {
 
 
 int main() {
-
 	try {
 		Distance	dist1( 5, 2.f );
 		Distance	dist2;

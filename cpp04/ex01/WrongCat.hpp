@@ -1,17 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.cpp                                     :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/29 09:02:31 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/29 09:06:01 by tamehri          ###   ########.fr       */
+/*   Created: 2024/05/31 10:20:44 by tamehri           #+#    #+#             */
+/*   Updated: 2024/05/31 11:46:26 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ICharacter.hpp"
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-ICharacter::~ICharacter() {
+# include "WrongAnimal.hpp"
 
-}
+class WrongCat : public WrongAnimal
+{
+	public :
+		WrongCat();
+		WrongCat( const WrongCat &src );
+		WrongCat &operator=( const WrongCat &rhs );
+		~WrongCat();
+
+		void		makeSound( void ) const;
+		std::string	getType( void ) const;
+};
+
+#endif

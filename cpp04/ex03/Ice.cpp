@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 08:52:31 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/29 09:47:21 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/07/19 20:32:53 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Ice::Ice( const Ice &src ) {
 
 Ice	&Ice::operator=( const Ice &rhs ) {
 	if (this != &rhs)
-		this->__type = rhs.getType();
+		this->__type = "ice";
 	return *this;
 }
 

@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 20:39:24 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/01 15:00:01 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/07/20 09:05:50 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Cat::Cat() {
 	this->__catBrain = new Brain( "cat is thinking about killing all humanity" );
 }
 
-Cat::Cat( const Cat &src ) : AAnimal(src) {
+Cat::Cat( const Cat &src ) : AAnimal( src ) {
 	std::cout << "\033[1;36mCat copy constructor called\033[0m" << std::endl;
 	__catBrain = new Brain( *src.__catBrain );
 }

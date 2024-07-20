@@ -1,14 +1,14 @@
-SRC		=	main.cpp AAnimal.cpp Cat.cpp Dog.cpp Brain.cpp
+SRC		=	./AAnimal.cpp ./Brain.cpp ./Cat.cpp ./Dog.cpp ./main.cpp ./WrongAnimal.cpp ./WrongCat.cpp 
 OBJ		=	$(SRC:.cpp=.o)
-NAME	=	animal
+NAME	=	brain
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@c++ -Wall -Wextra -Werror -g -std=c++98 $(OBJ) -o $(NAME)
+	@c++ -Wall -Wextra -Werror -std=c++98 $(OBJ) -o $(NAME)
 
-%.o: %.cpp AAnimal.hpp Cat.hpp Dog.hpp Brain.hpp
-	@c++ -Wall -Wextra -Werror -g -std=c++98 -c $< -o $@
+%.o: %.cpp ./AAnimal.hpp ./Brain.hpp ./Cat.hpp ./Dog.hpp ./WrongAnimal.hpp ./WrongCat.hpp 
+	@c++ -Wall -Wextra -Werror -std=c++98 -c $< -o $@
 
 clean:
 	@rm -f $(OBJ)

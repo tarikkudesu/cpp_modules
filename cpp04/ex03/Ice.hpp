@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 08:52:36 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/29 09:46:20 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/07/20 09:01:50 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@
 
 class	Ice : public AMateria
 {
-	private :
-		std::string	__name;
-
 	public :
 		Ice();
 		Ice( const Ice &src );
