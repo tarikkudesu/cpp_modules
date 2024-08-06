@@ -5,27 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/30 17:28:19 by tamehri           #+#    #+#             */
-/*   Updated: 2024/07/01 13:48:38 by tamehri          ###   ########.fr       */
+/*   Created: 2024/08/06 11:45:55 by tamehri           #+#    #+#             */
+/*   Updated: 2024/08/06 11:45:56 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AForm.hpp"
-#include "Bureaucrat.hpp"
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() {
-
+PresidentialPardonForm::PresidentialPardonForm() : AForm( "PresidentialPardonForm", 145, 137 ) {
+	std::cout << "Form type : PresidentialPardonForm" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm &src ) {
-
+PresidentialPardonForm::PresidentialPardonForm( std::string const target ) : AForm( "PresidentialPardonForm", 145, 137 ), __target( target ) {
+	std::cout << "Form type : PresidentialPardonForm" << std::endl;
 }
 
-PresidentialPardonForm	&PresidentialPardonForm::operator=( const PresidentialPardonForm &rhs ) {
+PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm &copy ) : AForm( copy ) {
 
 }
 
 PresidentialPardonForm::~PresidentialPardonForm() {
 
+}
+
+PresidentialPardonForm	&PresidentialPardonForm::operator=( const PresidentialPardonForm &assign ) {
+	if (this != &assign) {
+		AForm::operator=( assign );
+		this->__target = assign.__target;
+	}
+	return *this;
+}
+
+void	PresidentialPardonForm::formAction( void ) const {
+	std::cout << this->__target << " has been pardoned by Zaphod Beeblebroxt" << std::endl;
 }

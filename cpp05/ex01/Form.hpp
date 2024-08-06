@@ -5,53 +5,56 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/30 09:59:24 by tamehri           #+#    #+#             */
-/*   Updated: 2024/07/02 20:52:55 by tamehri          ###   ########.fr       */
+/*   Created: 2024/08/06 11:44:47 by tamehri           #+#    #+#             */
+/*   Updated: 2024/08/06 11:44:48 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __FORM_HPP__
-# define __FORM_HPP__
+#ifndef FORM_HPP
+# define FORM_HPP
 
 # include "Bureaucrat.hpp"
 
-class	Form
+class Form
 {
-	private :
+	private:
 		std::string const	__name;
 		bool				__isSigned;
-		int const			__signGrade;
-		int const			__execGrade;
+		const int			__signGrade;
+		const int			__execGrade;
 
-	public :
+	public:
 		Form();
-		Form( const std::string &name, int sign, int exec );
-		Form( const Form &src );
-		Form	&operator=( const Form &rhs );
+		Form( const Form &copy );
+		Form( std::string const &name, int signGrade, int execGHrade );
+		Form	&operator=( const Form &assign );
 		~Form();
 
-		class	GradeTooHighException : public std::exception {
+		std::string const	getName( void ) const;
+		bool				getStat( void ) const;
+		int					getSignGrade( void ) const;
+		int					getExecGrade( void ) const;
+		void				beSigned( Bureaucrat &bureacrat );
+
+		class GradeTooHighException : public std::exception {
+			private :
+				const char	*__error;
 			public :
-				std::string	__error;
-				GradeTooHighException() : __error( "Grade too high" ) {}
-				GradeTooHighException( std::string const &error ) : __error( error ) {}
-				const char	*what() const throw() { return ; }
+				GradeTooHighException() : __error( "\033[0;31mgrade is too high!!\033[0m" ) { }
+				GradeTooHighException( const char *error ) : __error( error ) { }
+				virtual const char	*what( void ) const throw() { return __error; }
 		};
-		class	GradeTooLowException : public std::exception {
+
+		class GradeTooLowException : public std::exception {
+			private :
+				const char	*__error;
 			public :
-				std::string	__error;
-				GradeTooLowException() : __error( "Grade too high" ) {}
-				GradeTooLowException( std::string const &error ) : __error( error ) {}
-				const char	*what() const throw() { return "Grade too low"; }
+				GradeTooLowException() : __error( "\033[0;31mgrade is too low!!\033[0m" ) { }
+				GradeTooLowException( const char *error ) : __error( error ) { }
+				virtual const char	*what( void ) const throw() { return __error; }
 		};
-		
-		std::string	getName( void ) const ;
-		bool		getStat( void ) const ;
-		int			getExecGrade( void ) const ;
-		int			getSignGrade( void ) const ;
-		void		beSigned( const Bureaucrat &bureaucrat );
 };
 
-std::ostream	&operator<<( std::ostream &o, const Form &form );
+std::ostream	&operator<<( std::ostream &o, Form &rhs );
 
 #endif

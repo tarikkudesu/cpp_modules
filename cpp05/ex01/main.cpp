@@ -5,15 +5,50 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/29 20:32:26 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/30 17:17:42 by tamehri          ###   ########.fr       */
+/*   Created: 2024/08/06 11:44:53 by tamehri           #+#    #+#             */
+/*   Updated: 2024/08/06 11:44:59 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main( void ) {
 
+	try {
+		Bureaucrat	aristotle( "aristotle", 10 );
 
+		std::cout << std::endl;
+
+		try {
+			Form	sheeseBurger( "sheeseBurger", 160, 100);
+		} catch ( std::exception &e ) {
+			std::cout << e.what() << std::endl;
+		}
+
+		std::cout << std::endl;
+
+		try {
+			Form	sheeseBurger( "sheeseBurger", 1, 100);
+			std::cout << sheeseBurger << std::endl;
+			aristotle.signForm(sheeseBurger);
+		} catch ( std::exception &e ) {
+			std::cout << e.what() << std::endl;
+		}
+
+		std::cout << std::endl;
+
+		try {
+			Form	sheeseBurger( "sheeseBurger", 100, 100);
+			std::cout << sheeseBurger << std::endl;
+			aristotle.signForm(sheeseBurger);
+			std::cout << sheeseBurger << std::endl;
+			aristotle.signForm(sheeseBurger);
+		} catch ( std::exception &e ) {
+			std::cout << e.what() << std::endl;
+		}
+
+	} catch ( std::exception &e ) {
+		std::cout << e.what() << std::endl;
+	}
 }

@@ -1,13 +1,13 @@
-SRC		=	./Bureaucrat.cpp ./Form.cpp ./main.cpp
+SRC		=	./Bureaucrat.cpp ./Form.cpp ./main.cpp 
 OBJ		=	$(SRC:.cpp=.o)
-NAME	=	bureaucrat
+NAME	=	Bureaucrat
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	@c++ -Wall -Wextra -Werror -std=c++98 $(OBJ) -o $(NAME)
 
-%.o: %.cpp ./Bureaucrat.hpp ./Form.hpp
+%.o: %.cpp ./Bureaucrat.hpp ./Form.hpp 
 	@c++ -Wall -Wextra -Werror -std=c++98 -c $< -o $@
 
 clean:

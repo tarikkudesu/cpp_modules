@@ -5,24 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/30 17:27:54 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/30 17:37:58 by tamehri          ###   ########.fr       */
+/*   Created: 2024/08/06 11:46:12 by tamehri           #+#    #+#             */
+/*   Updated: 2024/08/06 11:46:13 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __SCFORM_HPP__
-# define __SCFORM_HPP__
+#ifndef SHRUBBERYCREATIONFORM_HPP
+# define SHRUBBERYCREATIONFORM_HPP
 
-#include "AForm.hpp"
-#include "Bureaucrat.hpp"
+# include "AForm.hpp"
 
-class	ShrubberyCreationForm : public AForm
+class ShrubberyCreationForm : public AForm
 {
-	public :
+	private:
+		std::string	__target;
+		
+	public:
 		ShrubberyCreationForm();
-		ShrubberyCreationForm( const ShrubberyCreationForm &src );
-		ShrubberyCreationForm	&operator=( const ShrubberyCreationForm &rhs );
+		ShrubberyCreationForm( std::string const target );
+		ShrubberyCreationForm( const ShrubberyCreationForm &copy );
+		ShrubberyCreationForm	&operator=( const ShrubberyCreationForm &assign );
 		~ShrubberyCreationForm();
+		
+		void	formAction( void ) const ;
 };
 
 #endif

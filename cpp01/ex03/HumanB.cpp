@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:18:06 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/07 16:29:25 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/08/04 09:09:11 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,3 @@ void	HumanB::attack() {
 				<< " attacks with their " << this->weapon->getType() << std::endl;
 	}
 }
-

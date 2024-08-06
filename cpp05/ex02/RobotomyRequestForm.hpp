@@ -5,24 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/30 17:27:06 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/30 17:39:37 by tamehri          ###   ########.fr       */
+/*   Created: 2024/08/06 11:46:05 by tamehri           #+#    #+#             */
+/*   Updated: 2024/08/06 11:46:06 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __RRFORM_HPP__
-# define __RRFORM_HPP__
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 
-#include "AForm.hpp"
-#include "Bureaucrat.hpp"
+# include "AForm.hpp"
 
-class	RobotomyRequestForm : public AForm
+class RobotomyRequestForm : public AForm
 {
-	public :
+	private:
+		std::string	__target;
+		
+	public:
 		RobotomyRequestForm();
-		RobotomyRequestForm( const RobotomyRequestForm &src );
-		RobotomyRequestForm	&operator=( const RobotomyRequestForm &rhs );
+		RobotomyRequestForm( std::string const target );
+		RobotomyRequestForm( const RobotomyRequestForm &copy );
+		RobotomyRequestForm	&operator=( const RobotomyRequestForm &assign );
 		~RobotomyRequestForm();
+
+		void	formAction( void ) const ;
 };
 
 #endif

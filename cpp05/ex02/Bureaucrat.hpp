@@ -5,41 +5,58 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/29 20:31:19 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/30 17:22:23 by tamehri          ###   ########.fr       */
+/*   Created: 2024/08/06 11:45:21 by tamehri           #+#    #+#             */
+/*   Updated: 2024/08/06 11:45:22 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __BUREAUCRAT_HPP__
-# define __BUREAUCRAT_HPP__
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
 # include <iostream>
+# include <fstream>
 
 class	AForm;
 
-class	Bureaucrat
+class Bureaucrat
 {
 	private :
-		std::string	__name;
-		int			__grade;
+		const std::string	__name;
+		int					__grade;
 
-	public :
-		class		GradeTooHighException {};
-		class		GradeTooLowException {};
-
+	public:
 		Bureaucrat();
-		Bureaucrat( const std::string &name );
-		Bureaucrat( const Bureaucrat &src );
-		Bureaucrat	&operator=( const Bureaucrat &rhs );
+		Bureaucrat( std::string const &name, int grade );
+		Bureaucrat( const Bureaucrat &copy );
+		Bureaucrat & operator=( const Bureaucrat &assign );
 		~Bureaucrat();
 
-		std::string	getName( void ) const ;
-		int			getGrade( void ) const ;
-		void		gradeUp( void );
-		void		gradeDown( void );
-		void		signForm( AForm &form );
+		int				getGrade( void ) const;
+		std::string		getName( void ) const;
+		void			gradeUp( void );
+		void			gradeDown( void );
+		void			signForm( AForm &form );
+		void			executeForm( AForm const &form );
+
+		class GradeTooHighException : public std::exception {
+			private :
+				const char	*__error;
+			public :
+				GradeTooHighException() : __error( "\033[0;31mgrade is too high!!\033[0m" ) { }
+				GradeTooHighException( const char *error ) : __error( error ) { }
+				virtual const char	*what( void ) const throw() { return __error; }
+		};
+
+		class GradeTooLowException : public std::exception {
+			private :
+				const char	*__error;
+			public :
+				GradeTooLowException() : __error( "\033[0;31mgrade is too low!!\033[0m" ) { }
+				GradeTooLowException( const char *error ) : __error( error ) { }
+				virtual const char	*what( void ) const throw() { return __error; }
+		};
 };
 
-std::ostream	&operator<<( std::ostream &o, const Bureaucrat &bureaucrat );
+std::ostream	&operator<<( std::ostream &o, Bureaucrat &rhs );
 
 #endif

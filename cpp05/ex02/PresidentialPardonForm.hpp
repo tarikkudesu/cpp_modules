@@ -5,24 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/30 17:25:49 by tamehri           #+#    #+#             */
-/*   Updated: 2024/06/30 17:39:25 by tamehri          ###   ########.fr       */
+/*   Created: 2024/08/06 11:45:58 by tamehri           #+#    #+#             */
+/*   Updated: 2024/08/06 11:45:59 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __PPFORM_HPP__
-# define __PPFORM_HPP__
+#ifndef PRESIDENTIALPARDONFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
 
-#include "AForm.hpp"
-#include "Bureaucrat.hpp"
+# include "AForm.hpp"
 
-class	PresidentialPardonForm : public AForm
+class PresidentialPardonForm : public AForm
 {
+	private :
+		std::string	__target;
+
 	public :
 		PresidentialPardonForm();
-		PresidentialPardonForm( const PresidentialPardonForm &src );
-		PresidentialPardonForm	&operator=( const PresidentialPardonForm &rhs );
+		PresidentialPardonForm( std::string const target );
+		PresidentialPardonForm( const PresidentialPardonForm &copy );
+		PresidentialPardonForm	&operator=( const PresidentialPardonForm &assign );
 		~PresidentialPardonForm();
+		
+		void	formAction( void ) const;
 };
 
 #endif

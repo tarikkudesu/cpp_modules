@@ -2,7 +2,7 @@
 
 int	main( void ) {
 
-	Fixed a(2.1f);
+	Fixed a(6.1f);
 
 	std::cout << a.getRawBits() << "\n";
 	// Fixed	a;
