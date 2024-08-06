@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:46:26 by tamehri           #+#    #+#             */
-/*   Updated: 2024/08/06 11:46:27 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/08/06 12:14:41 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,5 @@ AForm	*Intern::makeForm( std::string const formName, std::string const targetNam
 		throw FormException();
 	return form;
 }
+
+const char	*Intern::FormException::what( void ) const throw() { return "\033[0;31mIntern failed to create the Form\033[0m"; }

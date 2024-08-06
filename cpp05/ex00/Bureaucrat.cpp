@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:44:05 by tamehri           #+#    #+#             */
-/*   Updated: 2024/08/06 11:44:06 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/08/06 12:12:36 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,3 +70,11 @@ std::ostream	&operator<<( std::ostream &o, Bureaucrat &rhs ) {
 	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
 	return o;
 }
+
+Bureaucrat::GradeTooHighException::GradeTooHighException() : __error( "\033[0;31mgrade is too high!!\033[0m" ) { }
+Bureaucrat::GradeTooHighException::GradeTooHighException( const char *error ) : __error( error ) { }
+const char	*Bureaucrat::GradeTooHighException::what( void ) const throw() { return __error; }
+
+Bureaucrat::GradeTooLowException::GradeTooLowException() : __error( "\033[0;31mgrade is too low!!\033[0m" ) { }
+Bureaucrat::GradeTooLowException::GradeTooLowException( const char *error ) : __error( error ) { }
+const char	*Bureaucrat::GradeTooLowException::what( void ) const throw() { return __error; }

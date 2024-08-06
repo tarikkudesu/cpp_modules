@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:44:08 by tamehri           #+#    #+#             */
-/*   Updated: 2024/08/06 11:44:09 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/08/06 12:12:59 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,17 @@ class Bureaucrat
 		class GradeTooHighException : public std::exception {
 			public :
 				const char	*__error;
-				GradeTooHighException() : __error( "\033[0;31mgrade is too high!!\033[0m" ) { }
-				GradeTooHighException( const char *error ) : __error( error ) { }
-				virtual const char	*what( void ) const throw() { return __error; }
+				GradeTooHighException();
+				GradeTooHighException( const char *error );
+				virtual const char	*what( void ) const throw();
 		};
 
 		class GradeTooLowException : public std::exception {
 			public :
 				const char	*__error;
-				GradeTooLowException() : __error( "\033[0;31mgrade is too low!!\033[0m" ) { }
-				GradeTooLowException( const char *error ) : __error( error ) { }
-				virtual const char	*what( void ) const throw() { return __error; }
+				GradeTooLowException();
+				GradeTooLowException( const char *error );
+				virtual const char	*what( void ) const throw();
 		};
 };
 

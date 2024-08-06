@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:45:08 by tamehri           #+#    #+#             */
-/*   Updated: 2024/08/06 11:45:09 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/08/06 12:17:54 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,3 +84,11 @@ std::ostream	&operator<<( std::ostream &o, AForm &rhs ) {
 		o << ", unsigned";
 	return o;
 }
+
+AForm::GradeTooHighException::GradeTooHighException() : __error( "\033[0;31mgrade is too high!!\033[0m" ) { }
+AForm::GradeTooHighException::GradeTooHighException( const char *error ) : __error( error ) { }
+const char	*AForm::GradeTooHighException::what( void ) const throw() { return __error; }
+
+AForm::GradeTooLowException::GradeTooLowException() : __error( "\033[0;31mgrade is too low!!\033[0m" ) { }
+AForm::GradeTooLowException::GradeTooLowException( const char *error ) : __error( error ) { }
+const char	*AForm::GradeTooLowException::what( void ) const throw() { return __error; }

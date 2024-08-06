@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:46:18 by tamehri           #+#    #+#             */
-/*   Updated: 2024/08/06 11:46:19 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/08/06 12:16:17 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,19 @@ class AForm
 		virtual void		formAction( void ) const = 0;
 
 		class GradeTooHighException : public std::exception {
-			private :
-				const char	*__error;
 			public :
-				GradeTooHighException() : __error( "\033[0;31mgrade is too high!!\033[0m" ) { }
-				GradeTooHighException( const char *error ) : __error( error ) { }
-				virtual const char	*what( void ) const throw() { return __error; }
+				const char	*__error;
+				GradeTooHighException();
+				GradeTooHighException( const char *error );
+				virtual const char	*what( void ) const throw();
 		};
 
 		class GradeTooLowException : public std::exception {
-			private :
-				const char	*__error;
 			public :
-				GradeTooLowException() : __error( "\033[0;31mgrade is too low!!\033[0m" ) { }
-				GradeTooLowException( const char *error ) : __error( error ) { }
-				virtual const char	*what( void ) const throw() { return __error; }
+				const char	*__error;
+				GradeTooLowException();
+				GradeTooLowException( const char *error );
+				virtual const char	*what( void ) const throw();
 		};
 };
 
