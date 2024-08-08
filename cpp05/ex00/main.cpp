@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:44:10 by tamehri           #+#    #+#             */
-/*   Updated: 2024/08/06 11:44:13 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/08/06 18:38:32 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main( void ) {
 		aristotle.gradeDown();
 		std::cout << aristotle << std::endl;
 	} catch ( std::exception &e ) {
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 
 	std::cout << std::endl;
@@ -36,7 +36,7 @@ int main( void ) {
 		std::cout << john << std::endl;
 		john.gradeUp();
 	} catch ( std::exception &e ) {
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 		
 	std::cout << std::endl;
@@ -44,6 +44,6 @@ int main( void ) {
 	try {
 		Bureaucrat	Socrates( "Socrates", 1700 );
 	} catch ( std::exception &e ) {
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 }

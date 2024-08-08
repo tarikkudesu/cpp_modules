@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:44:53 by tamehri           #+#    #+#             */
-/*   Updated: 2024/08/06 11:44:59 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/08/06 18:39:00 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main( void ) {
 		try {
 			Form	sheeseBurger( "sheeseBurger", 160, 100);
 		} catch ( std::exception &e ) {
-			std::cout << e.what() << std::endl;
+			std::cerr << e.what() << std::endl;
 		}
 
 		std::cout << std::endl;
@@ -33,7 +33,7 @@ int main( void ) {
 			std::cout << sheeseBurger << std::endl;
 			aristotle.signForm(sheeseBurger);
 		} catch ( std::exception &e ) {
-			std::cout << e.what() << std::endl;
+			std::cerr << e.what() << std::endl;
 		}
 
 		std::cout << std::endl;
@@ -45,10 +45,10 @@ int main( void ) {
 			std::cout << sheeseBurger << std::endl;
 			aristotle.signForm(sheeseBurger);
 		} catch ( std::exception &e ) {
-			std::cout << e.what() << std::endl;
+			std::cerr << e.what() << std::endl;
 		}
 
 	} catch ( std::exception &e ) {
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 }

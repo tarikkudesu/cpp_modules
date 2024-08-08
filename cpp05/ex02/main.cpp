@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:45:39 by tamehri           #+#    #+#             */
-/*   Updated: 2024/08/06 11:45:45 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/08/06 18:39:40 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int main( void ) {
 			aristotle.executeForm( rrf );
 
 		} catch ( std::exception &e ) {
-			std::cout << e.what() << std::endl;
+			std::cerr << e.what() << std::endl;
 		}
 
 		std::cout << std::endl;
@@ -54,7 +54,7 @@ int main( void ) {
 			std::cout << std::endl;
 			aristotle.executeForm( ppf );
 		} catch ( std::exception &e ) {
-			std::cout << e.what() << std::endl;
+			std::cerr << e.what() << std::endl;
 		}
 
 		try {
@@ -62,10 +62,10 @@ int main( void ) {
 			std::cout << std::endl;
 			john.executeForm( ppf );
 		} catch ( std::exception &e ) {
-			std::cout << e.what() << std::endl;
+			std::cerr << e.what() << std::endl;
 		}
 
 	} catch ( std::exception &e ) {
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 }
