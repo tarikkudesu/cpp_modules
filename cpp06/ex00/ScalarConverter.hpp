@@ -3,38 +3,30 @@
 
 # include <iostream>
 # include <iomanip>
-# include <cmath>
+# include <sstream>
 
-typedef enum e_type {
-	CHARACTER,
-	INTEGER,
-	DOUBLE,
-	FLOAT
-} t_type;
+typedef enum	e_type {
+	CHARACTER = 'C',
+	INTEGER = 'I',
+	DOUBLE = 'D',
+	FLOAT = 'F'
+}				t_type;
 
 class ScalarConverter
 {
 	private :
 		std::string		__input;
-		char			__char;
-		int				__int;
-		float			__float;
-		double			__double;
+		char			__c;
+		int				__i;
+		float			__f;
+		double			__d;
 		t_type			__type;
 
 		ScalarConverter();
 
-		void	parseInput( std::string const input );
-		void	setType( void );
-		void	typeConvertion( void );
-		void	printConversion( void );
-
-		class excep : public std::exception {
-			public :
-				const char	*__error;
-				excep( const char *error );
-				virtual const char	*what( void ) const throw();
-		};
+		enum e_type		setType( void );
+		void			typeConvertion( void );
+		void			printConversion( void );
 
 	public:
 		ScalarConverter( const ScalarConverter &copy );
