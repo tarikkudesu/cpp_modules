@@ -9,18 +9,19 @@ typedef enum	e_type {
 	CHARACTER = 'C',
 	INTEGER = 'I',
 	DOUBLE = 'D',
-	FLOAT = 'F'
+	FLOAT = 'F',
+	INVALID = '$'
 }				t_type;
 
 class ScalarConverter
 {
 	private :
 		std::string		__input;
+		t_type			__type;
 		char			__c;
 		int				__i;
 		float			__f;
 		double			__d;
-		t_type			__type;
 
 		ScalarConverter();
 

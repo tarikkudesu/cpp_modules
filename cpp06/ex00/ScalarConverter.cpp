@@ -28,62 +28,61 @@ void	ScalarConverter::printConversion( void ) {
 }
 
 void	ScalarConverter::typeConvertion( void ) {
-	std::stringstream	ss;
+	std::stringstream	ss(__input);
 
 	switch (__type) {
 		case CHARACTER:
-			ss << __input;
 			__c = __input.at(0);
 			__i = static_cast< int >(__c);
 			__f = static_cast< float >(__c);
 			__d = static_cast< double >(__c);
 			break ;
 		case INTEGER:
-			ss << __input;
 			ss >> __i;
 			__c = static_cast< char >(__i);
 			__f = static_cast< float >(__i);
 			__d = static_cast< double >(__i);
 			break ;
 		case FLOAT:
-			__input.erase(__input.length() - 1);
-			ss << __input;
 			ss >> __f;
 			__c = static_cast< char >(__f);
 			__i = static_cast< int >(__f);
 			__d = static_cast< double >(__f);
 			break ;
 		case DOUBLE:
-			ss << __input;
 			ss >> __d;
 			__c = static_cast< char >(__d);
 			__i = static_cast< int >(__d);
 			__f = static_cast< float >(__d);
 			break ;
+		case INVALID:
+			std::cout << "Error: invalid type" << std::endl;
+			return ;
 	}
+	this->printConversion();
 }
 
 enum e_type	ScalarConverter::setType( void ) {
 	size_t	i = 0;
 
-	if (__input.length() == 1 && ((__input.at(0) == '+' || __input.at(0) == '-')))
-		return CHARACTER;
-	if ((__input.at(0) == '+' || __input.at(0) == '-') && !std::isdigit(__input.at(1)))
-		return CHARACTER;
-	if (!std::isdigit(__input.at(0)) && __input.at(0) != '+' && __input.at(0) != '-')
+	if (__input.length() == 1 && !std::isdigit(__input.at(0)))
 		return CHARACTER;
 
-	(__input.at(0) == '+' || __input.at(0) == '-') ? i++ : false;
+	i = (__input.at(0) == '+' || __input.at(0) == '-');
 	for ( ; i < __input.length(); i++) {
 		if (!std::isdigit(__input.at(i)) && __input.at(i) != '.' && __input.at(i) != 'f')
 			break ;
 	}
-	this->__input = this->__input.substr(0, i);
-	size_t	pos = this->__input.find('.');
+	if (i != __input.length())
+		return INVALID;
+
+	size_t	pos = __input.find('.');
 	if (pos != std::string::npos) {
-		pos = this->__input.find('f');
-		if (pos != std::string::npos)
+		pos = __input.find('f');
+		if (pos != std::string::npos) {
+			__input.substr(0, __input.length() - 1);
 			return FLOAT;
+		}
 		return DOUBLE;
 	}
 	return INTEGER;
@@ -103,8 +102,7 @@ void	ScalarConverter::convert( std::string const input ) {
 		std::cout << "char: impossible\nint: impossible\nfloat: -inff\ndouble: -inf" << std::endl;
 	else {
 		obj.__type = obj.setType();
-		std::cout << static_cast<char>(obj.__type) << "\n";
+		// std::cout << static_cast< char >(obj.__type) << std::endl;
 		obj.typeConvertion();
-		obj.printConversion();
 	}
 }
