@@ -27,9 +27,9 @@ void	ScalarConverter::printConversion( void ) {
 	std::cout << "double: " << std::fixed << std::setprecision(1) << __d << std::endl;
 }
 
-void	ScalarConverter::typeConvertion( void ) {
+void	ScalarConverter::typeConversion( enum e_type __type ) {
 	std::stringstream	ss(__input);
-
+std::cout << static_cast<char>(__type) << std::endl;
 	switch (__type) {
 		case CHARACTER:
 			__c = __input.at(0);
@@ -70,21 +70,25 @@ enum e_type	ScalarConverter::setType( void ) {
 
 	i = (__input.at(0) == '+' || __input.at(0) == '-');
 	for ( ; i < __input.length(); i++) {
-		if (!std::isdigit(__input.at(i)) && __input.at(i) != '.' && __input.at(i) != 'f')
+		if (!std::isdigit(__input.at(i)) \
+					&& __input.at(i) != '.' \
+					&& __input.at(i) != 'f' \
+					&& __input.at(i) != 'F')
 			break ;
 	}
-	if (i != __input.length())
+	if (i != __input.length() || ( __input.find('.') != std::string::npos \
+		&& (__input.find('.', __input.find('.') + 1) != std::string::npos \
+		|| __input.find('f', __input.find('f') + 1) != std::string::npos) ))
 		return INVALID;
 
-	size_t	pos = __input.find('.');
-	if (pos != std::string::npos) {
-		pos = __input.find('f');
-		if (pos != std::string::npos) {
-			__input.substr(0, __input.length() - 1);
-			return FLOAT;
-		}
-		return DOUBLE;
+	if (__input.find('.') != std::string::npos && __input.at(i - 1) == 'f') {
+		std::cout << "----------float " << __input << std::endl;
+		__input.at(i - 1) = '\0';
+		std::cout << "----------float " << __input << std::endl;
+		return FLOAT;
 	}
+	if (__input.find('.') != std::string::npos)
+		return DOUBLE;
 	return INTEGER;
 }
 
@@ -101,8 +105,6 @@ void	ScalarConverter::convert( std::string const input ) {
 	else if (input == "-inf" || input == "-inff" )
 		std::cout << "char: impossible\nint: impossible\nfloat: -inff\ndouble: -inf" << std::endl;
 	else {
-		obj.__type = obj.setType();
-		// std::cout << static_cast< char >(obj.__type) << std::endl;
-		obj.typeConvertion();
+		obj.typeConversion( obj.setType() );
 	}
 }

@@ -17,7 +17,6 @@ class ScalarConverter
 {
 	private :
 		std::string		__input;
-		t_type			__type;
 		char			__c;
 		int				__i;
 		float			__f;
@@ -26,8 +25,8 @@ class ScalarConverter
 		ScalarConverter();
 
 		enum e_type		setType( void );
-		void			typeConvertion( void );
 		void			printConversion( void );
+		void			typeConversion( enum e_type __type );
 
 	public:
 		ScalarConverter( const ScalarConverter &copy );

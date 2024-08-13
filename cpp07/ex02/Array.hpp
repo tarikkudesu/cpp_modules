@@ -26,19 +26,10 @@ class Array
 		}
 		~Array() { delete[] this->__arr; }
 
-		T	&operator[]( unsigned int idx ) {
-			if (idx >= this->__size)
-				throw outOfRange();
-			return this->__arr[idx];
-		}
-		const T	&operator[]( unsigned int idx ) const {
-			if (idx >= this->__size)
-				throw outOfRange();
-			return this->__arr[idx];
-		}
-		unsigned int	size( void ) const {
-			return this->__size;
-		}
+		T				&operator[]( unsigned int idx ) { return idx < this->__size ? this->__arr[idx] : throw outOfRange(); }
+		const T			&operator[]( unsigned int idx ) const { return idx < this->__size ? this->__arr[idx] : throw outOfRange(); }
+		unsigned int	size( void ) const { return this->__size; }
+
 		class	outOfRange : public std::exception {
 			public :
 				virtual const char	*what( void ) const throw() { return "error: out of range"; }

@@ -11,17 +11,9 @@ void	swap( T &t, T &a ) {
 }
 
 template <class T>
-T	max( T t, T a ) {
-	if (t < a)
-		return t;
-	return a;
-}
+T	max( T t, T a ) { return t < a ? t : a }
 
 template <class T>
-T	min( T t, T a ) {
-	if (t > a)
-		return t;
-	return a;
-}
+T	min( T t, T a ) { return t > a ? t : a }
 
 #endif
