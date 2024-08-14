@@ -36,4 +36,7 @@ class Array
 		};
 };
 
+typedef	Array<int>		IArray;
+typedef	Array<double>	DArray;
+
 #endif

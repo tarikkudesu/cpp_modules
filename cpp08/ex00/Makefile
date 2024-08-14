@@ -1,13 +1,13 @@
-SRC		=	./main.cpp
+SRC		=	./main.cpp 
 OBJ		=	$(SRC:.cpp=.o)
-NAME	=	array
+NAME	=	easyfind
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	@c++ -Wall -Wextra -Werror -std=c++98 $(OBJ) -o $(NAME)
 
-%.o: %.cpp ./Array.hpp
+%.o: %.cpp ./easyfind.hpp 
 	@c++ -Wall -Wextra -Werror -std=c++98 -c $< -o $@
 
 clean:

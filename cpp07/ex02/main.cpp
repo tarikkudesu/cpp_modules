@@ -2,8 +2,8 @@
 
 int	main( void ) {
 	try {
-		Array<int>	*iArr = new Array<int>(3);
-		Array<double>	dArr(5);
+		IArray	*iArr = new IArray(3);
+		DArray	dArr(5);
 
 		for (unsigned int i = 0; i < iArr->size(); i++)
 			(*iArr)[i] = i * 4;
@@ -20,6 +20,7 @@ int	main( void ) {
 		for (unsigned int i = 0; i < dArr.size(); i++) {
 			std::cout << dArr[i] << " ";
 		} std::cout << std::endl;
+		dArr[0] = 0;
 	
 	} catch ( std::exception &e ) {
 		std::cout << e.what() << std::endl;

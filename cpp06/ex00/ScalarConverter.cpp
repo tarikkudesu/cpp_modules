@@ -82,9 +82,7 @@ enum e_type	ScalarConverter::setType( void ) {
 		return INVALID;
 
 	if (__input.find('.') != std::string::npos && __input.at(i - 1) == 'f') {
-		std::cout << "----------float " << __input << std::endl;
 		__input.at(i - 1) = '\0';
-		std::cout << "----------float " << __input << std::endl;
 		return FLOAT;
 	}
 	if (__input.find('.') != std::string::npos)
@@ -104,7 +102,6 @@ void	ScalarConverter::convert( std::string const input ) {
 		std::cout << "char: impossible\nint: impossible\nfloat: +inff\ndouble: +inf" << std::endl;
 	else if (input == "-inf" || input == "-inff" )
 		std::cout << "char: impossible\nint: impossible\nfloat: -inff\ndouble: -inf" << std::endl;
-	else {
+	else
 		obj.typeConversion( obj.setType() );
-	}
 }
