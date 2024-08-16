@@ -29,8 +29,8 @@ int	main( void ) {
 	} std::cout << std::endl;
 
 	// using the copy assignement operator
-	std::cout << "Using the copy operator to create a new MS : ";
-	MutantStack<int>	newMS(MS);
+	std::cout << "Using the copy assignement operator to create a new MS : ";
+	MutantStack<int>	newMS = MS ;
 	for (MutantStack<int>::iterator iter = newMS.begin(); iter != newMS.end(); iter++) {
 		std::cout << " " << *iter;
 	} std::cout << std::endl;
@@ -38,8 +38,8 @@ int	main( void ) {
 
 	/* -------------------------------------------------------------------------------------*/
 
-	std::cout << std::endl << "---- double MutantStack ----" << std::endl;
-	MutantStack<double>	DMS;
+	std::cout << std::endl << "---- double MutantStack with a vector container ----" << std::endl;
+	MutantStack<double, std::vector<double> >	DMS;
 	double	darr[] = {3.2, 2.3, 5.3, 8.94, 4.5, 23.12};
 
 	// Fill the MutantStack
@@ -48,7 +48,7 @@ int	main( void ) {
 	std::cout << "DMS size : " << DMS.size() << std::endl;
 	std::cout << "DMs top : " << DMS.top() << std::endl;
 	std::cout << "Printing DMS using an iterator : ";
-	for (MutantStack<double>::iterator iter = DMS.begin(); iter != DMS.end(); iter++) {
+	for (MutantStack< double, std::vector<double > >::iterator iter = DMS.begin(); iter != DMS.end(); iter++) {
 		std::cout << "  " << *iter;
 	} std::cout << std::endl;
 
@@ -78,9 +78,9 @@ int	main( void ) {
 		std::cout << " " << *iter;
 	} std::cout << std::endl;
 
-	// using the copy assignement operator
+	// using the copy operator
 	std::cout << "Using the copy operator to create a new lst : ";
-	std::list<int>	newlst(lst);
+	std::list<int>	newlst( lst );
 	for (std::list<int>::iterator iter = newlst.begin(); iter != newlst.end(); iter++) {
 		std::cout << " " << *iter;
 	} std::cout << std::endl;
