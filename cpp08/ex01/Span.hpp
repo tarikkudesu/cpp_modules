@@ -7,10 +7,12 @@
 class Span
 {
 	private :
-
-	public:
 		unsigned int		N;
 		std::vector<int>	inventory;
+		long int			sS;
+		long int			lS;
+
+	public:
 
 		Span( );
 		Span( const unsigned int n );
@@ -18,7 +20,10 @@ class Span
 		Span	&operator=( const Span &assign );
 		~Span();
 
+		void	fillContainer( void );
 		void	addNumber( int nbr );
+		long	shortestSpan( void );
+		long	longestSpan( void );
 
 		class	fullContainer : public std::exception { public : virtual const char *what( void ) const throw(); };
 		class	emptyContainer : public std::exception { public : virtual const char *what( void ) const throw(); };
