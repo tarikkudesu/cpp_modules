@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:46:20 by tamehri           #+#    #+#             */
-/*   Updated: 2024/08/06 18:40:08 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/08/17 19:24:39 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,25 +31,17 @@ Bureaucrat::Bureaucrat( const Bureaucrat &copy ) : __name( copy.__name ), __grad
 	std::cout << "Copy Constructor called of Bureaucrat" << std::endl;
 }
 
-Bureaucrat::~Bureaucrat() {
+Bureaucrat::~Bureaucrat() { }
 
-}
-
-Bureaucrat & Bureaucrat::operator=(const Bureaucrat &assign)
-{
+Bureaucrat & Bureaucrat::operator=(const Bureaucrat &assign) {
 	std::cout << "Copy Assignement Constructor called of Bureaucrat" << std::endl;
 	if (this != &assign)
 		this->__grade = assign.__grade;
 	return *this;
 }
 
-int			Bureaucrat::getGrade( void ) const {
-	return __grade;
-}
-
-std::string	Bureaucrat::getName( void ) const {
-	return __name;
-}
+int			Bureaucrat::getGrade( void ) const { return __grade; }
+std::string	Bureaucrat::getName( void ) const { return __name; }
 
 void		Bureaucrat::gradeUp( void ) {
 	std::cout <<  this->__name << " : Grading Bureaucrat up : ";

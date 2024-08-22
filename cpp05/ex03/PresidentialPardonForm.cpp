@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:46:38 by tamehri           #+#    #+#             */
-/*   Updated: 2024/08/06 11:46:39 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/08/17 19:25:34 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,9 @@ PresidentialPardonForm::PresidentialPardonForm( std::string const target ) : AFo
 	std::cout << "Form type : PresidentialPardonForm" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm &copy ) : AForm( copy ) {
+PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm &copy ) : AForm( copy ) { }
 
-}
-
-PresidentialPardonForm::~PresidentialPardonForm() {
-
-}
+PresidentialPardonForm::~PresidentialPardonForm() { }
 
 PresidentialPardonForm	&PresidentialPardonForm::operator=( const PresidentialPardonForm &assign ) {
 	if (this != &assign) {

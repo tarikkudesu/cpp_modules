@@ -6,13 +6,13 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:46:09 by tamehri           #+#    #+#             */
-/*   Updated: 2024/08/06 11:46:10 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/08/18 12:51:56 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm( "ShrubberyCreationForm", 25, 5 ) {
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm( "ShrubberyCreationForm", 145, 137 ) {
 	std::cout << "Form type : ShrubberyCreationForm" << std::endl;
 }
 
@@ -20,13 +20,9 @@ ShrubberyCreationForm::ShrubberyCreationForm( std::string const target ) : AForm
 	std::cout << "Form type : ShrubberyCreationForm" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm &copy ) : AForm( copy ) {
+ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm &copy ) : AForm( copy ) { }
 
-}
-
-ShrubberyCreationForm::~ShrubberyCreationForm() {
-
-}
+ShrubberyCreationForm::~ShrubberyCreationForm() { }
 
 ShrubberyCreationForm	&ShrubberyCreationForm::operator=( const ShrubberyCreationForm &assign ) {
 	if (this != &assign) {

@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:44:53 by tamehri           #+#    #+#             */
-/*   Updated: 2024/08/06 18:39:00 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/08/17 19:30:02 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ int main( void ) {
 			Form	sheeseBurger( "sheeseBurger", 160, 100);
 		} catch ( std::exception &e ) {
 			std::cerr << e.what() << std::endl;
-		}
-
-		std::cout << std::endl;
+		} std::cout << std::endl;
 
 		try {
 			Form	sheeseBurger( "sheeseBurger", 1, 100);
@@ -34,9 +32,7 @@ int main( void ) {
 			aristotle.signForm(sheeseBurger);
 		} catch ( std::exception &e ) {
 			std::cerr << e.what() << std::endl;
-		}
-
-		std::cout << std::endl;
+		} std::cout << std::endl;
 
 		try {
 			Form	sheeseBurger( "sheeseBurger", 100, 100);

@@ -1,8 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   generate.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/21 17:20:59 by tamehri           #+#    #+#             */
+/*   Updated: 2024/08/22 19:23:21 by tamehri          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Class.hpp"
 
 int rand( void ) {
-	char	c;
-	uintptr_t	add = reinterpret_cast<uintptr_t>(&c);
+	uintptr_t	add = reinterpret_cast<uintptr_t>(&rand);
 	return add % 3;
 }
 

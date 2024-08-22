@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:45:08 by tamehri           #+#    #+#             */
-/*   Updated: 2024/08/06 12:17:54 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/08/17 19:23:22 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,9 @@ AForm::AForm( std::string const &name, int signGrade, int execGrade ) : __name( 
 	std::cout << "\033[0;32mSuccessfull\033[0m" << std::endl;
 }
 
-AForm::AForm( const AForm &copy ) : __name( copy.getName() ), __isSigned( copy.getStat() ), __signGrade( copy.getSignGrade() ), __execGrade( copy.getExecGrade() ) {
+AForm::AForm( const AForm &copy ) : __name( copy.getName() ), __isSigned( copy.getStat() ), __signGrade( copy.getSignGrade() ), __execGrade( copy.getExecGrade() ) { }
 
-}
-
-AForm::~AForm() {
-
-}
+AForm::~AForm() { }
 
 AForm	&AForm::operator=( const AForm &assign ) {
 	if (this != &assign)
@@ -44,21 +40,10 @@ AForm	&AForm::operator=( const AForm &assign ) {
 	return *this;
 }
 
-std::string const AForm::getName( void ) const {
-	return __name;
-}
-
-bool	AForm::getStat( void ) const {
-	return __isSigned;
-}
-
-int	AForm::getSignGrade( void ) const {
-	return __signGrade;
-}
-
-int	AForm::getExecGrade( void ) const {
-	return	__execGrade;
-}
+std::string const	AForm::getName( void ) const { return __name; }
+bool				AForm::getStat( void ) const { return __isSigned; }
+int					AForm::getSignGrade( void ) const { return __signGrade; }
+int					AForm::getExecGrade( void ) const { return	__execGrade; }
 
 void	AForm::beSigned( Bureaucrat &bureaucrat ) {
 	if (bureaucrat.getGrade() > this->getSignGrade())
@@ -68,7 +53,7 @@ void	AForm::beSigned( Bureaucrat &bureaucrat ) {
 	this->__isSigned = true;
 }
 
-void				AForm::execute( Bureaucrat const &bureaucrat ) const {
+void	AForm::execute( Bureaucrat const &bureaucrat ) const {
 	if (bureaucrat.getGrade() > this->getSignGrade())
 		throw GradeTooLowException();
 	if (this->getStat() == false)

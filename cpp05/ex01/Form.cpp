@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:44:33 by tamehri           #+#    #+#             */
-/*   Updated: 2024/08/06 12:18:06 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/08/17 19:22:58 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,9 @@ Form::Form( std::string const &name, int signGrade, int execGrade ) : __name( na
 	std::cout << "\033[0;32mSuccessfull\033[0m" << std::endl;
 }
 
-Form::Form( const Form &copy ) : __name( copy.getName() ), __isSigned( copy.getStat() ), __signGrade( copy.getSignGrade() ), __execGrade( copy.getExecGrade() ) {
+Form::Form( const Form &copy ) : __name( copy.getName() ), __isSigned( copy.getStat() ), __signGrade( copy.getSignGrade() ), __execGrade( copy.getExecGrade() ) { }
 
-}
-
-Form::~Form() {
-
-}
+Form::~Form() { }
 
 Form	&Form::operator=( const Form &assign ) {
 	if (this != &assign)
@@ -44,21 +40,10 @@ Form	&Form::operator=( const Form &assign ) {
 	return *this;
 }
 
-std::string const Form::getName( void ) const {
-	return __name;
-}
-
-bool	Form::getStat( void ) const {
-	return __isSigned;
-}
-
-int	Form::getSignGrade( void ) const {
-	return __signGrade;
-}
-
-int	Form::getExecGrade( void ) const {
-	return	__execGrade;
-}
+std::string const	Form::getName( void ) const { return __name; }
+bool				Form::getStat( void ) const { return __isSigned; }
+int					Form::getSignGrade( void ) const { return __signGrade; }
+int					Form::getExecGrade( void ) const { return	__execGrade; }
 
 void	Form::beSigned( Bureaucrat &bureacrat ) {
 	if (bureacrat.getGrade() > this->getSignGrade())

@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:46:45 by tamehri           #+#    #+#             */
-/*   Updated: 2024/08/06 11:46:46 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/08/17 19:25:46 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,9 @@ RobotomyRequestForm::RobotomyRequestForm( std::string const target ) : AForm( "R
 	std::cout << "Form type : RobotomyRequestForm" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm &copy ) : AForm( copy ) {
+RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm &copy ) : AForm( copy ) { }
 
-}
-
-RobotomyRequestForm::~RobotomyRequestForm() {
-
-}
+RobotomyRequestForm::~RobotomyRequestForm() { }
 
 RobotomyRequestForm	&RobotomyRequestForm::operator=( const RobotomyRequestForm &assign ) {
 	if (this != &assign) {

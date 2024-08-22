@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:45:39 by tamehri           #+#    #+#             */
-/*   Updated: 2024/08/06 18:39:40 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/08/19 12:52:30 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "PresidentialPardonForm.hpp"
 
 int main( void ) {
+
 	try {
 		Bureaucrat	aristotle( "aristotle", 10 );
 		Bureaucrat	john( "john", 150 );
@@ -25,9 +26,9 @@ int main( void ) {
 
 		try {
 			
-			PresidentialPardonForm	ppf( "trump" );
-			RobotomyRequestForm		rrf( "trump" );
-			ShrubberyCreationForm	scf( "trump" );
+			PresidentialPardonForm	ppf( "Bender" );
+			RobotomyRequestForm		rrf( "Bender" );
+			ShrubberyCreationForm	scf( "Bender" );
 
 			std::cout << std::endl;
 
@@ -45,20 +46,18 @@ int main( void ) {
 
 		} catch ( std::exception &e ) {
 			std::cerr << e.what() << std::endl;
-		}
-
-		std::cout << std::endl;
+		} std::cout << std::endl;
 
 		try {
-			PresidentialPardonForm	ppf( "trump" );
+			PresidentialPardonForm	ppf( "Bender" );
 			std::cout << std::endl;
 			aristotle.executeForm( ppf );
 		} catch ( std::exception &e ) {
 			std::cerr << e.what() << std::endl;
-		}
+		} std::cout << std::endl;
 
 		try {
-			PresidentialPardonForm	ppf( "trump" );
+			PresidentialPardonForm	ppf( "Bender" );
 			std::cout << std::endl;
 			john.executeForm( ppf );
 		} catch ( std::exception &e ) {
@@ -68,4 +67,5 @@ int main( void ) {
 	} catch ( std::exception &e ) {
 		std::cerr << e.what() << std::endl;
 	}
+
 }

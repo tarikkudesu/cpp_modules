@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:44:47 by tamehri           #+#    #+#             */
-/*   Updated: 2024/08/06 12:15:32 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/08/17 19:18:17 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 
 class Form
 {
-	private:
+	private :
 		std::string const	__name;
 		bool				__isSigned;
 		const int			__signGrade;
 		const int			__execGrade;
 
-	public:
+	public :
 		Form();
 		Form( const Form &copy );
 		Form( std::string const &name, int signGrade, int execGHrade );

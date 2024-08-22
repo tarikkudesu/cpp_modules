@@ -1,39 +1,62 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/21 17:20:22 by tamehri           #+#    #+#             */
+/*   Updated: 2024/08/22 19:03:40 by tamehri          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SCALARCONVERTER_HPP
 # define SCALARCONVERTER_HPP
 
 # include <iostream>
 # include <iomanip>
 # include <sstream>
+# include <cfloat>
 
 typedef enum	e_type {
-	CHARACTER = 'C',
-	INTEGER = 'I',
-	DOUBLE = 'D',
-	FLOAT = 'F',
-	INVALID = '$'
+	CHARACTER = 0,
+	INTEGER = 1,
+	DOUBLE = 3,
+	FLOAT = 2,
+	INVALID = 4
 }				t_type;
 
 class ScalarConverter
 {
 	private :
-		std::string		__input;
-		char			__c;
-		int				__i;
-		float			__f;
-		double			__d;
+		bool				__impossible[4];
+		std::string			__input;
 
 		ScalarConverter();
 
-		enum e_type		setType( void );
-		void			printConversion( void );
-		void			typeConversion( enum e_type __type );
+		void				printChar( char __c );
+		void				printInt( int __i );
+		void				printFloat( float __f );
+		void				printDouble( double __d );
+
+		void				convertChar( void );
+		void				convertInt( void );
+		void				convertFloat( void );
+		void				convertDouble( void );
+
+		bool				isInt( void );
+		bool				isChar( void );
+		bool				isFloat( void );
+		bool				isDouble( void );
+
+		enum e_type			getType( void );
 
 	public:
 		ScalarConverter( const ScalarConverter &copy );
-		ScalarConverter	&operator=( const ScalarConverter &assign );
+		ScalarConverter		&operator=( const ScalarConverter &assign );
 		~ScalarConverter();
 
-		static void	convert( std::string const input );
+		static void			convert( std::string const input );
 };
 
 #endif
