@@ -3,5 +3,14 @@
 int	main( int ac, char **av ) {
 	if (ac == 2) {
 
-	} else { std::cerr << "Error:\nUsage ./btc filename" << std::endl; }
+		try {
+			BitcoinExchange	btc( std::string( *(av + 1) ) );
+
+			btc.processData();
+		} catch ( std::exception &e ) {
+			std::cerr << RED << e.what() << NON << std::endl;
+		}
+
+	} else
+		std::cerr << INV_ARG << std::endl;
 }
