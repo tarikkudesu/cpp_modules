@@ -7,8 +7,8 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@c++ -Wall -Wextra -Werror -std=c++98 $(OBJ) -o $(NAME)
 
-%.o: %.cpp ./Array.hpp
-	@c++ -Wall -Wextra -Werror -std=c++98 -c $< -o $@
+%.o: %.cpp ./Array.hpp ./Array.tpp
+	c++ -Wall -Wextra -Werror -std=c++98 -c $< -o $@
 
 clean:
 	@rm -f $(OBJ)

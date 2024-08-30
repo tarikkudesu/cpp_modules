@@ -1,13 +1,13 @@
-SRC		=	./BitcoinExchange.cpp ./main.cpp 
+SRC		=	./main.cpp ./RPN.cpp 
 OBJ		=	$(SRC:.cpp=.o)
-NAME	=	btc
+NAME	=	RPN
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	c++ -Wall -Wextra -Werror -std=c++98 $(OBJ) -o $(NAME)
 
-%.o: %.cpp ./BitcoinExchange.hpp 
+%.o: %.cpp ./RPN.hpp 
 	c++ -Wall -Wextra -Werror -std=c++98 -c $< -o $@
 
 clean:

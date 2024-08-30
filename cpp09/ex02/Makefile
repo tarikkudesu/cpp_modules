@@ -1,13 +1,13 @@
-SRC		=	./BitcoinExchange.cpp ./main.cpp 
+SRC		=	./main.cpp ./PmergeMe.cpp 
 OBJ		=	$(SRC:.cpp=.o)
-NAME	=	btc
+NAME	=	PmergeMe
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	c++ -Wall -Wextra -Werror -std=c++98 $(OBJ) -o $(NAME)
 
-%.o: %.cpp ./BitcoinExchange.hpp 
+%.o: %.cpp ./PmergeMe.hpp 
 	c++ -Wall -Wextra -Werror -std=c++98 -c $< -o $@
 
 clean:

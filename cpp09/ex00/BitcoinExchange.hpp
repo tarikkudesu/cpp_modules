@@ -28,14 +28,6 @@ class BitcoinExchange
 		bool	validDate( std::string const &date );
 		bool	validValue( std::string const &value );
 
-		class	btcException : public std::exception {
-			protected :
-				const char	*__error;
-			public : 
-				btcException( const char *error );
-				virtual const char	*what( void ) const throw();
-		};
-
 	public:
 		BitcoinExchange();
 		BitcoinExchange( std::string const &input );

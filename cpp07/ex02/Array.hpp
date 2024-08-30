@@ -1,7 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/25 13:51:21 by tamehri           #+#    #+#             */
+/*   Updated: 2024/08/25 19:33:38 by tamehri          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
 
 # include <iostream>
+
+class	outOfRange : public std::exception {
+	public :
+		virtual const char	*what( void ) const throw() {
+			return "\033[1;31merror: out of range\033[0m";
+		}
+};
 
 template < typename T >
 class Array
@@ -11,32 +30,20 @@ class Array
 		T				*__arr;
 
 	public:
-		Array() : __size( 0 ),  __arr( NULL ) { }
-		Array( unsigned int n ) : __size( n ), __arr( new T[n] ) { }
-		Array( const Array &copy ) { *this = copy; }
-		Array	&operator=( const Array &assign ) {
-			if (this != &assign) {
-				delete[] this->__arr;
-				this->__size = assign.__size;
-				this->__arr = new T[this->__size];
-				for (unsigned int i = 0; i < this->__size; i++)
-					this->__arr[i] = assign.__arr[i];
-			}
-			return *this;
-		}
-		~Array() { delete[] this->__arr; }
+		Array();
+		Array( unsigned int n );
+		Array( const Array &copy );
+		Array	&operator=( const Array &assign );
+		~Array();
 
-		T				&operator[]( unsigned int idx ) { return idx < this->__size ? this->__arr[idx] : throw outOfRange(); }
-		const T			&operator[]( unsigned int idx ) const { return idx < this->__size ? this->__arr[idx] : throw outOfRange(); }
-		unsigned int	size( void ) const { return this->__size; }
-
-		class	outOfRange : public std::exception {
-			public :
-				virtual const char	*what( void ) const throw() { return "error: out of range"; }
-		};
+		T				&operator[]( unsigned int idx );
+		const T			&operator[]( unsigned int idx ) const;
+		unsigned int	size( void ) const;
 };
 
-typedef	Array<int>		IArray;
-typedef	Array<double>	DArray;
+# include "Array.tpp"
+
+typedef	Array< int >		IArray;
+typedef	Array< double >		DArray;
 
 #endif
