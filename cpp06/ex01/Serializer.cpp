@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 17:20:34 by tamehri           #+#    #+#             */
-/*   Updated: 2024/08/21 17:22:04 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/08/23 10:26:56 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Serializer	&Serializer::operator=( const Serializer &assign ) {
 	return *this;
 }
 
-uintptr_t	Serializer::serialize( Data* ptr ) {
+uintptr_t	Serializer::serialize( Data *ptr ) {
 	return reinterpret_cast< uintptr_t >( ptr );
 }
 

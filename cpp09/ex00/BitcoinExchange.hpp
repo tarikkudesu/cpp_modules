@@ -7,11 +7,13 @@
 # include <sstream>
 # include <map>
 
-# define RED "\e[31m"
+# define RED "\e[1;31m"
+# define DEF "\e[0;39m"
+# define YEL "\e[1;33m"
 # define NON "\e[0m"
 
 # define INV_ARG		"Usage : ./btc <database.csv>"
-# define INV_DB			"Error: a database error"
+# define INV_DB			"a database error"
 # define READ_ERR		"I/O error while reading"
 
 class BitcoinExchange
@@ -28,14 +30,14 @@ class BitcoinExchange
 		bool	validDate( std::string const &date );
 		bool	validValue( std::string const &value );
 
-	public:
 		BitcoinExchange();
 		BitcoinExchange( std::string const &input );
 		BitcoinExchange( const BitcoinExchange &copy );
 		BitcoinExchange	&operator=( const BitcoinExchange &assign );
 		~BitcoinExchange();
 
-		void	processData( void );
+	public:
+		static void	processData( std::string const input );
 
 };
 

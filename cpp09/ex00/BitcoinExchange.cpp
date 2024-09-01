@@ -10,14 +10,14 @@ BitcoinExchange::BitcoinExchange( std::string const &input ) : __inputDb( input 
 	else if (std::string(__inputDb.end() - 4, __inputDb.end()) != ".csv")
 		throw std::runtime_error( INV_ARG );
 
-	this->__dbStream.open( "data.csv" );
+	this->__dbStream.open( "database/data.csv" );
 	if (this->__dbStream.is_open() == false)
-		throw std::runtime_error( "Error : database <data.csv> wasn't found" );
+		throw std::runtime_error( "database <data.csv> wasn't found" );
 
 	this->__inputStream.open( this->__inputDb );
 	if (this->__inputStream.is_open() == false) {
 		this->__dbStream.close();
-		throw std::runtime_error( "Error : couldn't open input file" );
+		throw std::runtime_error( "couldn't open input file" );
 	}
 }
 
@@ -75,32 +75,34 @@ bool	BitcoinExchange::validDate( std::string const &date ) {
 }
 
 float	BitcoinExchange::processInput( std::string const input ) {
-	if (input.length() < 14)
-		throw std::runtime_error( std::string("Error: bad input => " + input ).c_str() );
+	if (input.length() == 0)
+		throw std::runtime_error( std::string( "empty line" ).c_str() );
+	else if (input.length() < 14)
+		throw std::runtime_error( std::string( "bad input => \e[33m" + input).c_str() );
 
 	std::string	date( input.begin(), input.begin() + 10 );
 	std::string	sep( input.begin() + 10, input.begin() + 13 );
 	std::string	value( input.begin() + 13, input.end() );
 
 	if (!validDate( date ))
-		throw std::runtime_error( std::string( "Error: bad input => " + date ).c_str() );
+		throw std::runtime_error( std::string( "bad input => \e[33m" + date ).c_str() );
 	if (sep != " | ")
-		throw std::runtime_error( std::string( "Error: bad input => " + sep ).c_str() );
+		throw std::runtime_error( std::string( "bad input => \e[33m" + sep ).c_str() );
 	if (!validValue( value ))
-		throw std::runtime_error( std::string( "Error: bad input => " + value ).c_str() );
+		throw std::runtime_error( std::string( "bad input => \e[33m" + value ).c_str() );
 
 	std::map< std::string, float >::iterator	it = this->__Db.begin();
 	if (date < it->first)
-		throw std::runtime_error( std::string( "Error: bad input => " + date ).c_str() );
+		throw std::runtime_error( std::string( "bad input => \e[33m" + date ).c_str() );
 
 	if (value.at(0) == '-')
-		throw std::runtime_error( "Error: not a positive number." );
+		throw std::runtime_error( "not a positive number." );
 
 	std::istringstream	ss( value );
 	float result;
 	ss >> result;
 	if (ss.fail() || result > 1000)
-		throw std::runtime_error( "Error: too large a number." );
+		throw std::runtime_error( "too large number." );
 
 	return result;
 }
@@ -110,33 +112,26 @@ void	BitcoinExchange::processInputDb( void ) {
 
 	std::getline(this->__inputStream, line, '\n');
 	if (this->__inputStream.eof() || this->__inputStream.fail())
-		throw std::runtime_error( "Error : empty file" );
+		throw std::runtime_error( "empty file" );
 	if (line != "date | value")
-		throw std::runtime_error( "Error : invalid input format" );
+		throw std::runtime_error( "invalid input format <date | value>" );
 	line.clear();
 
-	while (true) {
-		std::getline(this->__inputStream, line, '\n');
-
-		if (this->__dbStream.eof() && line.length() == 0 )
-			break ;
-
+	int i = 2;
+	while (std::getline(this->__inputStream, line, '\n')) {
 		try {
-
 			float		value = this->processInput( line );
 			std::string	date = std::string( line.begin(), line.begin() + 10 );
-
 			std::cout << date << " => " << value << " = ";
 			if (this->__Db.find( date ) != this->__Db.end())
 				std::cout << value * this->__Db[date] << std::endl;
 			else
 				std::cout << value * this->__Db.lower_bound( date )->second << std::endl;
-
 		} catch ( std::exception &e ) {
-			std::cout << RED << e.what() << NON << std::endl;
+			std::cerr << RED << "error: "<< DEF << i << ": "  << e.what() << NON << std::endl;
 		}
-
 		line.clear();
+		i++;
 	}
 }
 
@@ -152,10 +147,8 @@ void	BitcoinExchange::extractDb( void ) {
 
 	while (true) {
 		std::getline(this->__dbStream, line, '\n');
-
 		if (this->__dbStream.eof() && line.length() == 0 )
 			break ;
-
 		if (line.length() < 12)
 			throw std::runtime_error( INV_DB );
 		std::string		date( line.begin(), line.begin() + 10 );
@@ -165,12 +158,12 @@ void	BitcoinExchange::extractDb( void ) {
 		if (validValue(exchange_rate) == false)
 			throw std::runtime_error( INV_DB );
 		this->__Db[date] = std::strtof( exchange_rate.c_str(), NULL );
-
 		line.clear();
 	}
 }
 
-void	BitcoinExchange::processData( void ) {
-	this->extractDb();
-	this->processInputDb();
+void	BitcoinExchange::processData( std::string const input ) {
+	BitcoinExchange	btc( input );
+	btc.extractDb();
+	btc.processInputDb();
 }

@@ -2,11 +2,11 @@
 # define RPN_HPP
 
 # include <iostream>
-# include <algorithm>
 # include <sstream>
 # include <stack>
 
-# define RED "\e[31m"
+# define RED "\e[1;31m"
+# define DEF "\e[0;39m"
 # define NON "\e[0m"
 
 # define READ_ERR		"I/O error while reading"
@@ -22,7 +22,7 @@ class RPN
 {
 	private :
 		std::stack< long long int >		__stack;
-		const std::string		__rpn;
+		const std::string				__rpn;
 
 		RPN();
 		RPN( std::string const &input );

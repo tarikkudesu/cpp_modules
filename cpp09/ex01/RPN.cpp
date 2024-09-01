@@ -1,7 +1,7 @@
 #include "RPN.hpp"
 
 RPN::RPN() {
-	throw std::runtime_error( "Error: no input" );
+	throw std::runtime_error( "no input" );
 }
 
 RPN::RPN( std::string const &input ) : __rpn( input ) {
@@ -9,7 +9,7 @@ RPN::RPN( std::string const &input ) : __rpn( input ) {
 		if (!std::isdigit(__rpn.at(i)) && __rpn.at(i) != ' ' \
 			&& __rpn.at(i) != ADDI && __rpn.at(i) != SUBS \
 			&& __rpn.at(i) != MULT && __rpn.at(i) != DIVI)
-				throw std::runtime_error( "Error: invalid input" );
+				throw std::runtime_error( "invalid input" );
 	}
 }
 
@@ -33,12 +33,12 @@ bool	RPN::isOperator( char op ) {
 
 void	RPN::operation( char op ) {
 	if (__stack.size() <= 1)
-		throw std::runtime_error( "Error: invalid input" );
+		throw std::runtime_error( "invalid input" );
 	int	second = __stack.top();
 	__stack.pop();
 	int	first = __stack.top();
 	__stack.pop();
-	switch (op) {
+	switch ( op ) {
 		case ADDI:
 			this->__stack.push( first + second );
 			break ;
@@ -49,7 +49,7 @@ void	RPN::operation( char op ) {
 			this->__stack.push( first * second );
 			break ;
 		case DIVI:
-			second ? true : throw std::runtime_error( "Error: division by 0" );
+			second ? true : throw std::runtime_error( "division by 0" );
 			this->__stack.push( first / second );
 			break ;
 	}
@@ -57,16 +57,12 @@ void	RPN::operation( char op ) {
 
 void	RPN::calculate( void ) {
 	std::string			token;
-	std::stringstream	ss(this->__rpn);
+	std::stringstream	ss( this->__rpn );
 
-	while (true) {
-		std::getline(ss, token, ' ');
-		if (ss.fail() && token.length() == 0)
-			break ;
+	while (std::getline(ss, token, ' ')) {
 
 		if (token.length() != 1)
-			throw std::runtime_error( "Error: invalid input" );
-
+			throw std::runtime_error( "invalid input" );
 		if ( isOperator( token.at(0) ))
 			operation( token.at(0) );
 		else
@@ -75,7 +71,7 @@ void	RPN::calculate( void ) {
 		token.clear();
 	}
 	if (__stack.size() != 1)
-		throw std::runtime_error( "Error: invalid input" );
+		throw std::runtime_error( "invalid input" );
 	std::cout << __stack.top() << std::endl;
 }
 
@@ -85,6 +81,6 @@ void	RPN::calculate( std::string const &input ) {
 
 		rpn.calculate();
 	} catch ( std::exception &e ) {
-		std::cout << RED << e.what() << NON << std::endl;
+		std::cout << RED << "error: " << DEF << e.what() << NON << std::endl;
 	}
 }

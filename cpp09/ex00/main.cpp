@@ -2,15 +2,13 @@
 
 int	main( int ac, char **av ) {
 	if (ac == 2) {
-
 		try {
-			BitcoinExchange	btc( std::string( *(av + 1) ) );
 
-			btc.processData();
+			BitcoinExchange::processData( std::string( *(av + 1) ) );
+
 		} catch ( std::exception &e ) {
-			std::cerr << RED << e.what() << NON << std::endl;
+			std::cerr << RED << "error: " << NON << e.what() << std::endl;
 		}
-
 	} else
 		std::cerr << INV_ARG << std::endl;
 }

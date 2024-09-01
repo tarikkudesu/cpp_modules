@@ -1,8 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/27 16:56:27 by tamehri           #+#    #+#             */
+/*   Updated: 2024/08/27 16:56:28 by tamehri          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Span.hpp"
 
 int	main( void ) {
+	/* ************************** Empty Container ************************** */
+	try {
+		Span    sp(0);
 
-	// test adding more than the size specified
+		std::cout << sp.shortestSpan() << std::endl << sp.longestSpan() << std::endl;
+	} catch( std::exception &e ) { std::cout << e.what() << std::endl; }
+
+	/* ******************** Container with one element ******************** */
+	try {
+		Span    sp(1);
+
+		sp.addNumber(1);
+		std::cout << sp.shortestSpan() << std::endl << sp.longestSpan() << std::endl;
+	} catch( std::exception &e ) { std::cout << e.what() << std::endl; }
+
+	/* **************** adding more than the size specified **************** */
 	try {
 		Span    sp(1);
 
@@ -10,15 +36,7 @@ int	main( void ) {
 		sp.addNumber( 4 );
 	} catch( std::exception &e ) { std::cout << e.what() << std::endl; }
 
-	// getting shortest/longest span with an object that has one element
-	try {
-		Span    sp(1);
-
-		sp.addNumber( 5 );
-		std::cout << sp.shortestSpan() << std::endl << sp.longestSpan() << std::endl;
-	} catch( std::exception &e ) { std::cout << e.what() << std::endl; }
-
-	// test 5 elements
+	/* ***************************** basic test ***************************** */
 	try {
 		Span    sp(5);
 
@@ -30,13 +48,11 @@ int	main( void ) {
 		std::cout << sp.shortestSpan() << std::endl << sp.longestSpan() << std::endl;
     } catch( std::exception &e ) { std::cout << e.what() << std::endl; }
 
-	// test 20000 elements
+	/* ************************** 20 000 elements ************************** */
 	try {
-		Span    sp(5);
+		Span    sp(20000);
 	
 		sp.fillContainer();
 		std::cout << sp.shortestSpan() << std::endl << sp.longestSpan() << std::endl;
     } catch( std::exception &e ) { std::cout << e.what() << std::endl; }
-
-	return 0;
 }

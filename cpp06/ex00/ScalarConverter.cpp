@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 17:20:19 by tamehri           #+#    #+#             */
-/*   Updated: 2024/08/28 16:01:07 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/08/24 09:44:12 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,64 +66,64 @@ void	ScalarConverter::printDouble( double __d ) {
 void	ScalarConverter::convertChar( void ) {
 	char	__c = this->__input.at( 0 );
 	printChar( __c );
-	printInt( __c );
-	printFloat( __c );
-	printDouble( __c );
+	printInt( static_cast< int >( __c ) );
+	printFloat( static_cast< float >( __c ) );
+	printDouble( static_cast< double >( __c ) );
 }
 
 void	ScalarConverter::convertInt( void ) {
-	long	i = std::strtol( this->__input.c_str(), NULL, 10 );
+	long	__i = std::strtol( this->__input.c_str(), NULL, 10 );
 
-	if (i > INT_MAX || i < INT_MIN) {
+	if (__i > INT_MAX || __i < INT_MIN) {
 		this->__impossible[INTEGER] = true;
 		this->__impossible[FLOAT] = true;
 		this->__impossible[DOUBLE] = true;
 	}
-	if (i > CHAR_MAX || i < CHAR_MIN)
+	if (__i > CHAR_MAX || __i < CHAR_MIN)
 		this->__impossible[CHARACTER] = true;
-	printChar( static_cast< char >( i ) );
-	printInt( static_cast< int >( i ) );
-	printFloat( i );
-	printDouble( i );
+	printChar( static_cast< char >( __i ) );
+	printInt( static_cast< int >( __i ) );
+	printFloat( static_cast< float >( __i ) );
+	printDouble( static_cast< double >( __i ) );
 }
 
 void	ScalarConverter::convertFloat( void ) {
 	this->__input.erase( this->__input.end() - 1 );
 	std::stringstream	ss( this->__input );
 
-	float	f;
-	ss >> f;
+	float	__f;
+	ss >> __f;
 	if (ss.fail()) {
 		this->__impossible[FLOAT] = true;
 		this->__impossible[DOUBLE] = true;
 	}
-	if (f > INT_MAX || f < INT_MIN)
+	if (__f > INT_MAX || __f < INT_MIN)
 		this->__impossible[INTEGER] = true;
-	if (f > CHAR_MAX || f < CHAR_MIN)
+	if (__f > CHAR_MAX || __f < CHAR_MIN)
 		this->__impossible[CHARACTER] = true;
-	printChar( static_cast< char >( f ) );
-	printInt( static_cast< int >( f ) );
-	printFloat( static_cast< float >( f ) );
-	printDouble( f );
+	printChar( static_cast< char >( __f ) );
+	printInt( static_cast< int >( __f ) );
+	printFloat( __f );
+	printDouble( static_cast< float >( __f ) );
 }
 
 void	ScalarConverter::convertDouble( void ) {
 	std::stringstream	ss( this->__input );
 
-	double	d;
-	ss >> d;
+	double	__d;
+	ss >> __d;
 	if (ss.fail())
 		this->__impossible[DOUBLE] = true;
-	if (d > FLT_MAX || d < -FLT_MAX)
+	if (__d > FLT_MAX || __d < -FLT_MAX)
 		this->__impossible[FLOAT] = true;
-	if (d > INT_MAX || d < INT_MIN)
+	if (__d > INT_MAX || __d < INT_MIN)
 		this->__impossible[INTEGER] = true;
-	if (d > CHAR_MAX || d < CHAR_MIN)
+	if (__d > CHAR_MAX || __d < CHAR_MIN)
 		this->__impossible[CHARACTER] = true;
-	printChar( static_cast< char >( d ) );
-	printInt( static_cast< int >( d ) );
-	printFloat( static_cast< float >( d ) );
-	printDouble( d );
+	printChar( static_cast< char >( __d ) );
+	printInt( static_cast< int >( __d ) );
+	printFloat( static_cast< float >( __d ) );
+	printDouble( __d );
 }
 
 bool	ScalarConverter::isChar( void ) {
@@ -205,7 +205,7 @@ void	ScalarConverter::convert( std::string const input ) {
 			case DOUBLE :
 				return obj.convertDouble();
 			case INVALID :
-				std::cout << "Error: invalid type" << std::endl;
+				std::cerr << "Error: invalid type" << std::endl;
 		}
 	}
 }

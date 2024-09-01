@@ -1,27 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/27 16:56:37 by tamehri           #+#    #+#             */
+/*   Updated: 2024/08/27 16:58:27 by tamehri          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MUTANTSTACK_HPP
 # define MUTANTSTACK_HPP
 
 # include <iostream>
 # include <algorithm>
-# include <vector>
-# include <deque>
 # include <stack>
 # include <list>
 
-template <typename Type, class Container = std::deque<Type> >
-class MutantStack : public std::stack<Type, Container>
+template <typename Type, class Con = std::deque<Type> >
+class MutantStack : public std::stack< Type, Con >
 {
 	public:
-		typedef typename Container::iterator					iterator;
-		typedef typename Container::const_iterator				const_iterator;
-		typedef typename Container::reverse_iterator			reverse_iterator;
-		typedef typename Container::const_reverse_iterator		const_reverse_iterator;
+		typedef typename Con::iterator					iterator;
+		typedef typename Con::const_iterator			const_iterator;
+		typedef typename Con::reverse_iterator			reverse_iterator;
+		typedef typename Con::const_reverse_iterator	const_reverse_iterator;
 
 		MutantStack() { }
 		~MutantStack() { }
 		MutantStack( const MutantStack &copy ) : std::stack<Type>( copy ) { }
 		MutantStack	&operator=( const MutantStack &assign ) {
-			std::stack< Type, Container >::operator=( assign );
+			std::stack< Type, Con >::operator=( assign );
 			return *this;
 		}
 
