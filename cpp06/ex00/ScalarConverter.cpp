@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 17:20:19 by tamehri           #+#    #+#             */
-/*   Updated: 2024/08/24 09:44:12 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/11/16 17:32:35 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,11 @@ void	ScalarConverter::convertChar( void ) {
 }
 
 void	ScalarConverter::convertInt( void ) {
-	long	__i = std::strtol( this->__input.c_str(), NULL, 10 );
+	std::stringstream	ss( this->__input );
 
-	if (__i > INT_MAX || __i < INT_MIN) {
+	int	__i;
+	ss >> __i;
+	if (ss.fail()) {
 		this->__impossible[INTEGER] = true;
 		this->__impossible[FLOAT] = true;
 		this->__impossible[DOUBLE] = true;

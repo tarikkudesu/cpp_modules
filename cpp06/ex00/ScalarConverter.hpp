@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 17:20:22 by tamehri           #+#    #+#             */
-/*   Updated: 2024/08/22 19:03:40 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/11/16 17:27:05 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <iomanip>
 # include <sstream>
 # include <cfloat>
+# include <limits.h>
 
 typedef enum	e_type {
 	CHARACTER = 0,
